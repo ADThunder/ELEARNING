@@ -1,0 +1,27 @@
+.counting-sec {
+  padding: 40px 0;
+  width: 100%;
+  background: #a1ff8b;
+  background: -webkit-linear-gradient(to left, #a1ff8b, #3f93ff);
+  background: linear-gradient(to left, #a1ff8b, #3f93ff);
+}
+.inner-width {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+}
+.col {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.col i {
+  font-size: 40px;
+  color: #333;
+}
+.num {
+  font-size: 40px;
+  margin: 20px 0;
+}
