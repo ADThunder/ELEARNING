@@ -3,6 +3,7 @@ import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
 
 const initialState = {
   listKhoaHoc: [],
+  detailKhoaHoc: {},
 };
 
 const quanLyKhoaHocSlice = createSlice({
@@ -13,6 +14,9 @@ const quanLyKhoaHocSlice = createSlice({
     builder.addCase(layDanhSachKhoaHocApi.fulfilled, (state, action) => {
       //   console.log(action);
       state.listKhoaHoc = action.payload;
+    });
+    builder.addCase(layThongTinKhoaHocApi.fulfilled, (state, action) => {
+      state.detailKhoaHoc = action.payload;
     });
   },
 });
@@ -27,6 +31,15 @@ export const layDanhSachKhoaHocApi = createAsyncThunk(
   "khoaHoc/layDanhSachKhoaHocApi",
   async () => {
     const result = await quanLyKhoaHocServ.layDanhSachKhoaHoc();
+    return result.data;
+  }
+);
+
+//todo : lấy thông tin khoá học để làm trang detail
+export const layThongTinKhoaHocApi = createAsyncThunk(
+  "khoaHoc/layThongTinKhoaHocApi",
+  async (maKhoaHoc) => {
+    const result = await quanLyKhoaHocServ.layThongTinKhoaHoc(maKhoaHoc);
     return result.data;
   }
 );

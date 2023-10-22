@@ -2,6 +2,7 @@ import React from "react";
 import { Carousel } from "antd";
 import { useSelector } from "react-redux";
 import "./listKhoaHoc.scss";
+import { useNavigate } from "react-router-dom";
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -28,6 +29,7 @@ function SamplePrevArrow(props) {
 }
 
 const ListKhoaHoc = () => {
+  const navigate = useNavigate();
   const { listKhoaHoc } = useSelector((state) => state.quanLyKhoaHocSlice);
   //   console.log(listKhoaHoc);
 
@@ -46,8 +48,8 @@ const ListKhoaHoc = () => {
         prevArrow={<SamplePrevArrow />}
       >
         {listKhoaHoc?.map((item, index) => {
-          //   console.log(item);
-          const { hinhAnh, biDanh, tenKhoaHoc, moTa } = item;
+          // console.log(item);
+          const { hinhAnh, biDanh, tenKhoaHoc, moTa, maKhoaHoc } = item;
           return (
             <div key={index} className="p-7 shadowCarousel">
               <div className=" p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
@@ -60,7 +62,14 @@ const ListKhoaHoc = () => {
                   <h2 className="text-xl h-14 font-semibold">{tenKhoaHoc}</h2>
                   <p className="text-gray-600 line-clamp-3">{moTa}</p>
                   <div className="flex justify-between items-center mt-4">
-                    <button className="buttonKhoaHoc">Xem chi tiết</button>
+                    <button
+                      onClick={() => {
+                        navigate(`/chi-tiet/${maKhoaHoc}`);
+                      }}
+                      className="buttonKhoaHoc"
+                    >
+                      Xem chi tiết
+                    </button>
                   </div>
                 </div>
               </div>
