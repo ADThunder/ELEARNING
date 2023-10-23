@@ -3,9 +3,6 @@ import { Carousel } from "antd";
 import "./giangVien.scss";
 
 const GiangVien = () => {
-  const onChange = (currentSlide) => {
-    console.log(currentSlide);
-  };
   return (
     <div className="container mx-auto py-20">
       <h2 className="text-center font-bold text-3xl mb-10 text-orange-500">

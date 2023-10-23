@@ -18,6 +18,9 @@ const quanLyKhoaHocSlice = createSlice({
     builder.addCase(layThongTinKhoaHocApi.fulfilled, (state, action) => {
       state.detailKhoaHoc = action.payload;
     });
+    builder.addCase(dangKyKhoaHocApi.fulfilled, (state, action) => {
+      console.log(action);
+    });
   },
 });
 
@@ -40,6 +43,15 @@ export const layThongTinKhoaHocApi = createAsyncThunk(
   "khoaHoc/layThongTinKhoaHocApi",
   async (maKhoaHoc) => {
     const result = await quanLyKhoaHocServ.layThongTinKhoaHoc(maKhoaHoc);
+    return result.data;
+  }
+);
+
+//todo : đăng ký khoá học
+export const dangKyKhoaHocApi = createAsyncThunk(
+  "khoaHoc/dangKyKhoaHocApi",
+  async (thongTinDangKy) => {
+    const result = await quanLyKhoaHocServ.dangKyKhoaHoc(thongTinDangKy);
     return result.data;
   }
 );

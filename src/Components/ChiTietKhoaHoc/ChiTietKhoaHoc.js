@@ -2,13 +2,17 @@ import React, { useEffect } from "react";
 import "./chiTietKhoaHoc.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { message } from "antd";
 import {
+  dangKyKhoaHocApi,
   layDanhSachKhoaHocApi,
   layThongTinKhoaHocApi,
 } from "../../redux/slice/quanLyKhoaHocSlice";
 import { Rate } from "antd";
 
 const ChiTietKhoaHoc = () => {
+  const [messageApi, contextHolder] = message.useMessage();
+  const { user } = useSelector((state) => state.quanLyNguoiDungSlice);
   const navigate = useNavigate();
   const { detailKhoaHoc, listKhoaHoc } = useSelector(
     (state) => state.quanLyKhoaHocSlice
@@ -22,8 +26,14 @@ const ChiTietKhoaHoc = () => {
   useEffect(() => {
     dispatch(layDanhSachKhoaHocApi());
   }, []);
+
+  class ThongTinDatKhoaHoc {
+    maKhoaHoc = "";
+    taiKhoan = "";
+  }
   return (
     <>
+      {contextHolder}
       <div className="backGroundDetail shine">
         <img
           className="bgDetail"
@@ -324,7 +334,16 @@ const ChiTietKhoaHoc = () => {
                 </span>
               </div>
               <div className="text-center my-2 px-5">
-                <button className="border-green-500 font-bold border py-2 w-full text-green-500 hover:bg-green-500 hover:text-white duration-500">
+                <button
+                  onClick={() => {
+                    let thongTinDatKhoaHoc = new ThongTinDatKhoaHoc();
+                    thongTinDatKhoaHoc.maKhoaHoc = params.id;
+                    thongTinDatKhoaHoc.taiKhoan = user.taiKhoan;
+                    dispatch(dangKyKhoaHocApi(thongTinDatKhoaHoc));
+                    messageApi.success("Đăng ký khoá học thành công");
+                  }}
+                  className="border-green-500 font-bold border py-2 w-full text-green-500 hover:bg-green-500 hover:text-white duration-500"
+                >
                   ĐĂNG KÝ
                 </button>
                 <div className="flex justify-between items-center my-3">

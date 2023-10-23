@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Dropdown } from "antd";
 import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./header.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { setDataUser } from "../../redux/slice/quanLyNguoiDungSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.quanLyNguoiDungSlice);
+  // console.log(user);
+  useEffect(() => {
+    const userLocal = JSON.parse(localStorage.getItem("user"));
+    if (userLocal) {
+      dispatch(setDataUser(userLocal));
+    }
+  }, []);
+  const navigate = useNavigate();
   const [danhMucKhoaHoc, setDanhMucKhoaHoc] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -13,7 +25,7 @@ const Header = () => {
     quanLyKhoaHocServ
       .layDanhMucKhoaHoc()
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setDanhMucKhoaHoc(result.data);
       })
       .catch((error) => {
@@ -131,12 +143,16 @@ const Header = () => {
               className="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-100 text-gray-800 focus:bg-gray-50"
             />
           </div>
-          <button
-            type="button"
-            className="hidden px-6 py-2 font-semibold rounded lg:block bg-[#B86BF8] text-gray-50 hover:bg-[#B87BF9] duration-500"
-          >
-            Đăng nhập
-          </button>
+          {user ? (
+            <p className="text-white">{user.hoTen}</p>
+          ) : (
+            <Link
+              to={"/dang-nhap"}
+              className="hidden px-6 py-2 font-semibold rounded lg:block bg-[#B86BF8] text-gray-50 hover:bg-[#B87BF9] duration-500"
+            >
+              Đăng nhập
+            </Link>
+          )}
         </div>
         <button
           onClick={toggleMenu}

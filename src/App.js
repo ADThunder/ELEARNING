@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import ChiTietKhoaHoc from "./Components/ChiTietKhoaHoc/ChiTietKhoaHoc";
+import FormDangNhap from "./pages/FormDangNhap/FormDangNhap";
 import Home from "./pages/Home/Home";
 import HomeTemplate from "./templates/HomeTemplate/HomeTemplate";
 
@@ -13,6 +14,7 @@ function App() {
             <Route path=":id" element={<ChiTietKhoaHoc />} />
           </Route>
         </Route>
+        <Route path="dang-nhap" element={<FormDangNhap />} />
       </Routes>
     </>
   );

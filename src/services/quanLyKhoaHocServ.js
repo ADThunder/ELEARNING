@@ -18,4 +18,8 @@ export const quanLyKhoaHocServ = {
       `/api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${maKhoaHoc}`
     );
   },
+  //todo : đăng ký khoá học
+  dangKyKhoaHoc: async (thongTinDangKy) => {
+    return await https.post(`/api/QuanLyKhoaHoc/DangKyKhoaHoc`, thongTinDangKy);
+  },
 };
