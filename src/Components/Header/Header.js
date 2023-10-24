@@ -40,12 +40,15 @@ const Header = () => {
 
   //todo : hàm lấy ra các tên danh mục khoá học
   const items = danhMucKhoaHoc?.map((item, index) => {
+    // console.log(item);
     return {
       key: index,
       label: (
-        <a className="font-medium hover:text-orange-500 duration-500">
-          {item.tenDanhMuc}
-        </a>
+        <Link to={`/danh-muc-khoa-hoc/${item.maDanhMuc}`}>
+          <a className="font-medium hover:text-orange-500 duration-500">
+            {item.tenDanhMuc}
+          </a>
+        </Link>
       ),
     };
   });
