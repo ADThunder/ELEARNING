@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDataUser } from "../../redux/slice/quanLyNguoiDungSlice";
 
 const Header = () => {
+  const [timKiem, setTimKiem] = useState("");
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.quanLyNguoiDungSlice);
   // console.log(user);
@@ -16,7 +18,6 @@ const Header = () => {
       dispatch(setDataUser(userLocal));
     }
   }, []);
-  const navigate = useNavigate();
   const [danhMucKhoaHoc, setDanhMucKhoaHoc] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,14 +46,31 @@ const Header = () => {
       key: index,
       label: (
         <Link to={`/danh-muc-khoa-hoc/${item.maDanhMuc}`}>
-          <a className="font-medium hover:text-orange-500 duration-500">
+          <p className="font-medium hover:text-orange-500 duration-500">
             {item.tenDanhMuc}
-          </a>
+          </p>
         </Link>
       ),
     };
   });
 
+  //todo : lấy ra mã danh mục
+  const keywords = danhMucKhoaHoc?.map((item) => item.maDanhMuc);
+  // console.log(keywords);
+  //todo : sử lý chức năng search
+  const handleSearch = () => {
+    const formatSearch = timKiem.trim();
+    // console.log(formatSearch);
+    if (keywords.some((keyword) => formatSearch.includes(keyword))) {
+      navigate(`/tim-kiem-khoa-hoc/${formatSearch}`);
+    }
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSearch();
+    }
+  };
   return (
     <header className="p-4 bg-[#6BB5F8] text-neutral-800 dark:text-neutral-200 z-[999]">
       <div className="container flex justify-between h-16 mx-auto">
@@ -74,13 +92,13 @@ const Header = () => {
             </Dropdown>
           </li>
           <li className="flex">
-            <a
+            <Link
+              to={"/khoa-hoc"}
               rel="noopener noreferrer"
-              href="#"
               className="flex items-center -mb-1 border-b-2 border-transparent"
             >
               KHOÁ HỌC
-            </a>
+            </Link>
           </li>
           <li className="flex">
             <a
@@ -126,6 +144,9 @@ const Header = () => {
           <div className="relative">
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
               <button
+                onClick={() => {
+                  handleSearch();
+                }}
                 type="submit"
                 title="Search"
                 className="p-1 focus:outline-none focus:ring"
@@ -140,6 +161,11 @@ const Header = () => {
               </button>
             </span>
             <input
+              onKeyDown={handleKeyDown}
+              value={timKiem}
+              onChange={(event) => {
+                setTimKiem(event.target.value);
+              }}
               type="search"
               name="Search"
               placeholder="Search..."

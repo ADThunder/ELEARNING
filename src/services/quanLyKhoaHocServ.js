@@ -1,8 +1,8 @@
 import https from "./config";
-const maNhom = "GP04";
+const maNhom = "GP01";
 
 export const quanLyKhoaHocServ = {
-  //todo : Lấy danh mục  khoá học
+  //todo : Lấy danh mục khoá học
   layDanhMucKhoaHoc: async () => {
     return await https.get("/api/QuanLyKhoaHoc/LayDanhMucKhoaHoc");
   },
@@ -21,5 +21,17 @@ export const quanLyKhoaHocServ = {
   //todo : đăng ký khoá học
   dangKyKhoaHoc: async (thongTinDangKy) => {
     return await https.post(`/api/QuanLyKhoaHoc/DangKyKhoaHoc`, thongTinDangKy);
+  },
+  //todo : lấy khoá học theo từng mã danh mục liên quan
+  layKhoaHocTheoMaDanhMuc: async (maDanhMuc) => {
+    return await https.get(
+      `/api/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${maDanhMuc}&MaNhom=${maNhom}`
+    );
+  },
+  //todo : lấy danh sách khoá học phân trang
+  layDanhSachKhoaHocPhanTrang: async (page) => {
+    return await https.get(
+      `/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc_PhanTrang?page=${page}&pageSize=10&MaNhom=${maNhom}`
+    );
   },
 };
