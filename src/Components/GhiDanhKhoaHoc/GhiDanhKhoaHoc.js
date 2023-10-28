@@ -3,6 +3,7 @@ import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
 import "./ghiDanhKhoaHoc.css";
 import { useParams } from "react-router-dom";
 import { Select, message } from "antd";
+import KhoaHocDaGhiDanh from "../KhoaHocDaGhiDanh/KhoaHocDaGhiDanh";
 
 const GhiDanhKhoaHoc = () => {
   const [messageApi, contextHolder] = message.useMessage();
@@ -81,6 +82,8 @@ const GhiDanhKhoaHoc = () => {
             </div>
           </div>
         </div>
+        <hr />
+        <KhoaHocDaGhiDanh />
       </div>
     </>
   );
