@@ -1,11 +1,20 @@
 import { Route, Routes } from "react-router-dom";
+import Blog from "./Components/Blog/Blog";
 import ChiTietKhoaHoc from "./Components/ChiTietKhoaHoc/ChiTietKhoaHoc";
+import Error404 from "./Components/Error404/Error404";
 import KhoaHocTheoTen from "./Components/KhoaHocTheoTen/KhoaHocTheoTen";
 import KhoaHocTongHop from "./Components/KhoaHocTongHop/KhoaHocTongHop";
+import SuKien from "./Components/SuKien/SuKien";
+import ThongTin from "./Components/ThongTin/ThongTin";
 import TimKiemKhoaHoc from "./Components/TimKiemKhoaHoc/TimKiemKhoaHoc";
 import FormDangNhap from "./pages/FormDangNhap/FormDangNhap";
 import Home from "./pages/Home/Home";
 import HomeTemplate from "./templates/HomeTemplate/HomeTemplate";
+import AdminTemplate from "./templates/AdminTemplate/AdminTemplate";
+import ThongTinCaNhan from "./pages/ThongTinCaNhan/ThongTinCaNhan";
+import UserAdmin from "./pages/UserAdmin/UserAdmin";
+import EditUser from "./Components/EditUser/EditUser";
+import ThemNguoiDung from "./Components/ThemNguoiDung/ThemNguoiDung";
 
 function App() {
   return (
@@ -23,8 +32,20 @@ function App() {
           <Route path="tim-kiem-khoa-hoc">
             <Route path=":id" element={<TimKiemKhoaHoc />} />
           </Route>
+          <Route path="thong-tin" element={<ThongTin />} />
+          <Route path="su-kien" element={<SuKien />} />
+          <Route path="blog" element={<Blog />} />
         </Route>
         <Route path="dang-nhap" element={<FormDangNhap />} />
+        <Route path="*" element={<Error404 />} />
+        <Route path="admin" element={<AdminTemplate />}>
+          <Route path="quan-ly-nguoi-dung" element={<UserAdmin />} />
+          <Route path="chinh-sua-user">
+            <Route path=":id" element={<EditUser />} />
+          </Route>
+          <Route path="them-nguoi-dung" element={<ThemNguoiDung />} />
+        </Route>
+        <Route path="thong-tin-ca-nhan" element={<ThongTinCaNhan />} />
       </Routes>
     </>
   );

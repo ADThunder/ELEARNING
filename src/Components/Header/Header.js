@@ -11,6 +11,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.quanLyNguoiDungSlice);
+  console.log(user);
   // console.log(user);
   useEffect(() => {
     const userLocal = JSON.parse(localStorage.getItem("user"));
@@ -71,6 +72,35 @@ const Header = () => {
       handleSearch();
     }
   };
+  //todo : xử lý đăng nhập
+  const handleBtnLogin = () => {
+    if (user) {
+      console.log(user.maLoaiNguoiDung);
+      return (
+        <div>
+          {user.maLoaiNguoiDung === "GV" ? (
+            <span>
+              <Link to={"/admin"}>trang Admin</Link>
+            </span>
+          ) : (
+            <></>
+          )}
+          <Link className="text-white" to={"/thong-tin-ca-nhan"}>
+            {user.hoTen}
+          </Link>
+        </div>
+      );
+    } else {
+      return (
+        <Link
+          to={"/dang-nhap"}
+          className="hidden px-6 py-2 font-semibold rounded lg:block bg-[#B86BF8] text-gray-50 hover:bg-[#B87BF9] duration-500"
+        >
+          Đăng nhập
+        </Link>
+      );
+    }
+  };
   return (
     <header className="p-4 bg-[#6BB5F8] text-neutral-800 dark:text-neutral-200 z-[999]">
       <div className="container flex justify-between h-16 mx-auto">
@@ -101,31 +131,31 @@ const Header = () => {
             </Link>
           </li>
           <li className="flex">
-            <a
+            <Link
               rel="noopener noreferrer"
-              href="#"
+              to={"/blog"}
               className="flex items-center  -mb-1 border-b-2 border-transparent"
             >
               BLOGS
-            </a>
+            </Link>
           </li>
           <li className="flex">
-            <a
+            <Link
               rel="noopener noreferrer"
-              href="#"
+              to={"/su-kien"}
               className="flex items-center -mb-1 border-b-2 border-transparent"
             >
               SỰ KIỆN
-            </a>
+            </Link>
           </li>
           <li className="flex">
-            <a
+            <Link
               rel="noopener noreferrer"
-              href="#"
+              to={"/thong-tin"}
               className="flex items-center -mb-1 border-b-2 border-transparent"
             >
               THÔNG TIN
-            </a>
+            </Link>
           </li>
         </ul>
         <Link
@@ -172,7 +202,7 @@ const Header = () => {
               className="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-100 text-gray-800 focus:bg-gray-50"
             />
           </div>
-          {user ? (
+          {/* {user ? (
             <p className="text-white">{user.hoTen}</p>
           ) : (
             <Link
@@ -181,7 +211,8 @@ const Header = () => {
             >
               Đăng nhập
             </Link>
-          )}
+          )} */}
+          {handleBtnLogin()}
         </div>
         <button
           onClick={toggleMenu}
