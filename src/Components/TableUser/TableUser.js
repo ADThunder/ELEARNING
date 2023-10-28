@@ -63,6 +63,14 @@ const TableUser = () => {
         <Space size="middle">
           <button
             onClick={() => {
+              navigate(`/admin/ghi-danh-khoa-hoc/${record.taiKhoan}`);
+            }}
+            className="text-xl text-green-500"
+          >
+            <i className="fa-solid fa-plus"></i>
+          </button>
+          <button
+            onClick={() => {
               navigate(`/admin/chinh-sua-user/${record.taiKhoan}`);
             }}
             className="text-xl text-blue-500 "

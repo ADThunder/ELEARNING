@@ -34,4 +34,8 @@ export const quanLyKhoaHocServ = {
       `/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc_PhanTrang?page=${page}&pageSize=10&MaNhom=${maNhom}`
     );
   },
+  //todo : ghi danh khoá học
+  ghiDanhKhoaHoc: async (ghiDanh) => {
+    return await https.post(`/api/QuanLyKhoaHoc/GhiDanhKhoaHoc`, ghiDanh);
+  },
 };

@@ -15,6 +15,7 @@ import ThongTinCaNhan from "./pages/ThongTinCaNhan/ThongTinCaNhan";
 import UserAdmin from "./pages/UserAdmin/UserAdmin";
 import EditUser from "./Components/EditUser/EditUser";
 import ThemNguoiDung from "./Components/ThemNguoiDung/ThemNguoiDung";
+import GhiDanhKhoaHoc from "./Components/GhiDanhKhoaHoc/GhiDanhKhoaHoc";
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
             <Route path=":id" element={<EditUser />} />
           </Route>
           <Route path="them-nguoi-dung" element={<ThemNguoiDung />} />
+          <Route path="ghi-danh-khoa-hoc">
+            <Route path=":id" element={<GhiDanhKhoaHoc />} />
+          </Route>
         </Route>
         <Route path="thong-tin-ca-nhan" element={<ThongTinCaNhan />} />
       </Routes>

@@ -11,7 +11,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.quanLyNguoiDungSlice);
-  console.log(user);
+  // console.log(user);
   // console.log(user);
   useEffect(() => {
     const userLocal = JSON.parse(localStorage.getItem("user"));
@@ -75,7 +75,7 @@ const Header = () => {
   //todo : xử lý đăng nhập
   const handleBtnLogin = () => {
     if (user) {
-      console.log(user.maLoaiNguoiDung);
+      // console.log(user.maLoaiNguoiDung);
       return (
         <div>
           {user.maLoaiNguoiDung === "GV" ? (
