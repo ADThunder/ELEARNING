@@ -1,23 +1,20 @@
 import React from "react";
-import { Popconfirm, Space, Table, message } from "antd";
+import { Popconfirm, Space, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import "./tableUser.css";
-import { quanLyNguoiDungServ } from "../../services/quanLyNguoiDungServ";
-import { layDanhSachNguoiDungApi } from "../../redux/slice/quanLyNguoiDungSlice";
+import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
+import { layDanhSachKhoaHocApi } from "../../redux/slice/quanLyKhoaHocSlice";
+import { message } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const onChange = (pagination, filters, sorter, extra) => {
   console.log("params", pagination, filters, sorter, extra);
 };
 
-const TableUser = () => {
+const TableKhoaHoc = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [messageApi, contextHolder] = message.useMessage();
-  const { danhSachNguoiDung } = useSelector(
-    (state) => state.quanLyNguoiDungSlice
-  );
-  //   console.log(danhSachNguoiDung);
+  const dispatch = useDispatch();
+  const { listKhoaHoc } = useSelector((state) => state.quanLyKhoaHocSlice);
   const columns = [
     {
       title: "STT",
@@ -30,56 +27,56 @@ const TableUser = () => {
       },
     },
     {
-      title: "Tài khoản",
-      dataIndex: "taiKhoan",
+      title: "Mã khoá học",
+      dataIndex: "maKhoaHoc",
     },
     {
-      title: "Họ tên",
-      dataIndex: "hoTen",
+      title: "Tên khoá học",
+      dataIndex: "tenKhoaHoc",
     },
     {
-      title: "Email",
-      dataIndex: "email",
-    },
-    {
-      title: "Số điện thoại",
-      dataIndex: "soDt",
-    },
-    {
-      title: "Loại người dùng",
-      dataIndex: "maLoaiNguoiDung",
-      filters: [
-        { text: "GV", value: "GV" },
-        { text: "HV", value: "HV" },
-      ],
-      onFilter: (value, record) => {
-        return record.maLoaiNguoiDung === value;
+      title: "Hình ảnh",
+      dataIndex: "hinhAnh",
+      render: (text, record, index) => {
+        return (
+          <img
+            className="w-20 h-20"
+            src={record.hinhAnh}
+            alt={record.hinhAnh}
+          />
+        );
       },
     },
     {
-      title: "Hành dộng",
+      title: "Lượt xem",
+      dataIndex: "luotXem",
+    },
+    {
+      title: "Người tạo",
+      dataIndex: "nguoiTao",
+      render: (text, record, index) => {
+        return <span>{record.nguoiTao.hoTen}</span>;
+      },
+    },
+    {
+      title: "Thao tác",
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <button
-            onClick={() => {
-              navigate(`/admin/ghi-danh-khoa-hoc/${record.taiKhoan}`);
-            }}
-            className="text-xl text-green-500"
-          >
+          <button onClick={() => {}} className="text-xl text-green-500">
             <i className="fa-solid fa-plus"></i>
           </button>
           <button
             onClick={() => {
-              navigate(`/admin/chinh-sua-user/${record.taiKhoan}`);
+              navigate(`/admin/chinh-sua-khoa-hoc/${record.maKhoaHoc}`);
             }}
             className="text-xl text-blue-500 "
           >
             <i className="fa-regular fa-pen-to-square"></i>
           </button>
           <Popconfirm
-            title="Xoá Người dùng"
-            description="Bạn có muốn xoá người dùng không?"
+            title="Xoá khoá hoc"
+            description="Bạn có muốn xoá khoá học không?"
             // onCancel={cancel}
             okText="Có"
             cancelText="Không"
@@ -87,15 +84,15 @@ const TableUser = () => {
               className: "bg-red-500 hover:bg-red-600 duration:500",
             }}
             onConfirm={() => {
-              quanLyNguoiDungServ
-                .xoaNguoiDung(record.taiKhoan)
+              quanLyKhoaHocServ
+                .xoaKhoaHoc(record.maKhoaHoc)
                 .then((result) => {
-                  console.log(result);
+                  //   console.log(result);
                   messageApi.success(result.data);
-                  dispatch(layDanhSachNguoiDungApi());
+                  dispatch(layDanhSachKhoaHocApi());
                 })
                 .catch((error) => {
-                  console.log(error);
+                  //   console.log(error.response.data);
                   messageApi.error(error.response.data);
                 });
             }}
@@ -111,13 +108,9 @@ const TableUser = () => {
   return (
     <>
       {contextHolder}
-      <Table
-        columns={columns}
-        dataSource={danhSachNguoiDung}
-        onChange={onChange}
-      />
+      <Table columns={columns} dataSource={listKhoaHoc} onChange={onChange} />
     </>
   );
 };
 
-export default TableUser;
+export default TableKhoaHoc;

@@ -16,11 +16,9 @@ const items = [
     getItem("Quản lý người dùng", "quan-ly-nguoi-dung"),
     getItem("Thêm người dùng", "them-nguoi-dung"),
   ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
+  getItem("Khoá học", "sub2", <TeamOutlined />, [
+    getItem("Quản lý khoá học", "quan-ly-khoa-hoc"),
   ]),
-  getItem("Files", "9", <FileOutlined />),
 ];
 
 const AdminTemplate = () => {

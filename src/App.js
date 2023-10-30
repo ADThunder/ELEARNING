@@ -16,6 +16,8 @@ import UserAdmin from "./pages/UserAdmin/UserAdmin";
 import EditUser from "./Components/EditUser/EditUser";
 import ThemNguoiDung from "./Components/ThemNguoiDung/ThemNguoiDung";
 import GhiDanhKhoaHoc from "./Components/GhiDanhKhoaHoc/GhiDanhKhoaHoc";
+import KhoaHocAdmin from "./pages/KhoaHocAdmin/KhoaHocAdmin";
+import EditKhoaHoc from "./Components/EditKhoaHoc/EditKhoaHoc";
 
 function App() {
   return (
@@ -44,10 +46,14 @@ function App() {
           <Route path="chinh-sua-user">
             <Route path=":id" element={<EditUser />} />
           </Route>
+          <Route path="chinh-sua-khoa-hoc">
+            <Route path=":id" element={<EditKhoaHoc />} />
+          </Route>
           <Route path="them-nguoi-dung" element={<ThemNguoiDung />} />
           <Route path="ghi-danh-khoa-hoc">
             <Route path=":id" element={<GhiDanhKhoaHoc />} />
           </Route>
+          <Route path="quan-ly-khoa-hoc" element={<KhoaHocAdmin />} />
         </Route>
         <Route path="thong-tin-ca-nhan" element={<ThongTinCaNhan />} />
       </Routes>

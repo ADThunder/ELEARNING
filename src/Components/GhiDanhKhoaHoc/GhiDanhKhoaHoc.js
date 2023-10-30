@@ -4,6 +4,7 @@ import "./ghiDanhKhoaHoc.css";
 import { useParams } from "react-router-dom";
 import { Select, message } from "antd";
 import KhoaHocDaGhiDanh from "../KhoaHocDaGhiDanh/KhoaHocDaGhiDanh";
+import { quanLyNguoiDungServ } from "../../services/quanLyNguoiDungServ";
 
 const GhiDanhKhoaHoc = () => {
   const [messageApi, contextHolder] = message.useMessage();
@@ -12,10 +13,10 @@ const GhiDanhKhoaHoc = () => {
   const [data, setData] = useState([]);
   //todo : lấy danh sách khoá học
   useEffect(() => {
-    quanLyKhoaHocServ
-      .layDanhSachKhoaHoc()
+    quanLyNguoiDungServ
+      .layDanhSachKhoaHocChuaGhiDanh(params.id)
       .then((result) => {
-        // console.log(result);
+        console.log(result);
         setData(result.data);
       })
       .catch((error) => {
@@ -37,6 +38,8 @@ const GhiDanhKhoaHoc = () => {
     const ghiDanh = new GhiDanh();
     ghiDanh.taiKhoan = params.id;
     ghiDanh.maKhoaHoc = valueSelected;
+    console.log(ghiDanh.taiKhoan);
+    console.log(ghiDanh.maKhoaHoc);
     quanLyKhoaHocServ
       .ghiDanhKhoaHoc(ghiDanh)
       .then((result) => {

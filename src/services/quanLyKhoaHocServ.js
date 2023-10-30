@@ -38,4 +38,10 @@ export const quanLyKhoaHocServ = {
   ghiDanhKhoaHoc: async (ghiDanh) => {
     return await https.post(`/api/QuanLyKhoaHoc/GhiDanhKhoaHoc`, ghiDanh);
   },
+  //todo : xoá khoá học ở trang admin
+  xoaKhoaHoc: async (maKhoaHoc) => {
+    return await https.delete(
+      `/api/QuanLyKhoaHoc/XoaKhoaHoc?MaKhoaHoc=${maKhoaHoc}`
+    );
+  },
 };
