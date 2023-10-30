@@ -5,6 +5,9 @@ export const quanLyNguoiDungServ = {
   dangNhap: async (data) => {
     return await https.post(`/api/QuanLyNguoiDung/DangNhap`, data);
   },
+  dangKy: async (data) => {
+    return await https.post(`/api/QuanLyNguoiDung/DangKy`, data);
+  },
   //todo : lấy danh sách toàn bộ người dùng
   layDanhSachNguoiDung: async () => {
     return await https.get(

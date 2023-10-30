@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./header.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setDataUser } from "../../redux/slice/quanLyNguoiDungSlice";
+import DropDownMenu from "../../pages/DropDownMenu/DropDownMenu";
 
 const Header = () => {
   const [timKiem, setTimKiem] = useState("");
@@ -85,19 +86,28 @@ const Header = () => {
           ) : (
             <></>
           )}
-          <Link className="text-white" to={"/thong-tin-ca-nhan"}>
+          {/* <Link className="text-white" to={"/thong-tin-ca-nhan"}>
             {user.hoTen}
-          </Link>
+          </Link> */}
+          <DropDownMenu />
         </div>
       );
     } else {
       return (
-        <Link
-          to={"/dang-nhap"}
-          className="hidden px-6 py-2 font-semibold rounded lg:block bg-[#B86BF8] text-gray-50 hover:bg-[#B87BF9] duration-500"
-        >
-          Đăng nhập
-        </Link>
+        <div className="flex gap-1">
+          <Link
+            to={"/dang-nhap"}
+            className="hidden px-3 py-2 font-semibold rounded lg:block bg-[#B86BF8] text-gray-50 hover:bg-[#B87BF9] duration-500"
+          >
+            Đăng nhập
+          </Link>
+          <Link
+            to={"/dang-ky"}
+            className="hidden px-3 py-2 font-semibold rounded lg:block bg-[#B86BF8] text-gray-50 hover:bg-[#B87BF9] duration-500"
+          >
+            Đăng ký
+          </Link>
+        </div>
       );
     }
   };
