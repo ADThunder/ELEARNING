@@ -1,5 +1,5 @@
-import React from "react";
-import { Popconfirm, Space, Table, message } from "antd";
+import React, { useState } from "react";
+import { Popconfirm, Space, Table, message, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import "./tableUser.css";
 import { quanLyNguoiDungServ } from "../../services/quanLyNguoiDungServ";
@@ -17,6 +17,53 @@ const TableUser = () => {
   const { danhSachNguoiDung } = useSelector(
     (state) => state.quanLyNguoiDungSlice
   );
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearch = (selectedKeys, confirm) => {
+    confirm();
+    setSearchText(selectedKeys[0]);
+  };
+
+  const handleReset = (clearFilters) => {
+    clearFilters();
+    setSearchText("");
+  };
+  const getColumnSearchProps = (dataIndex) => ({
+    filterDropdown: ({
+      setSelectedKeys,
+      selectedKeys,
+      confirm,
+      clearFilters,
+    }) => (
+      <div style={{ padding: 8 }}>
+        <Input
+          placeholder={`Search ${dataIndex}`}
+          value={selectedKeys[0]}
+          onChange={(e) =>
+            setSelectedKeys(e.target.value ? [e.target.value] : [])
+          }
+          onPressEnter={() => handleSearch(selectedKeys, confirm)}
+          style={{ marginBottom: 8, display: "block" }}
+        />
+        <button
+          type="button"
+          onClick={() => handleSearch(selectedKeys, confirm)}
+          style={{ marginRight: 8 }}
+        >
+          Search
+        </button>
+        <button type="button" onClick={() => handleReset(clearFilters)}>
+          Reset
+        </button>
+      </div>
+    ),
+    filterIcon: (filtered) => (
+      <i className={`fa-solid fa-search${filtered ? "-minus" : ""}`} />
+    ),
+    onFilter: (value, record) =>
+      record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
+    render: (text) => <span>{text}</span>,
+  });
   //   console.log(danhSachNguoiDung);
   const columns = [
     {
@@ -32,10 +79,12 @@ const TableUser = () => {
     {
       title: "Tài khoản",
       dataIndex: "taiKhoan",
+      ...getColumnSearchProps("taiKhoan"),
     },
     {
       title: "Họ tên",
       dataIndex: "hoTen",
+      ...getColumnSearchProps("hoTen"),
     },
     {
       title: "Email",
@@ -108,14 +157,20 @@ const TableUser = () => {
       ),
     },
   ];
+  const filteredData = danhSachNguoiDung.filter(
+    (item) =>
+      item.taiKhoan.toLowerCase().includes(searchText.toLowerCase()) ||
+      item.hoTen.toLowerCase().includes(searchText.toLowerCase())
+  );
   return (
     <>
       {contextHolder}
-      <Table
-        columns={columns}
-        dataSource={danhSachNguoiDung}
-        onChange={onChange}
+      <Input.Search
+        placeholder="Nhập tên người dùng hoặc tài khoản"
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
       />
+      <Table columns={columns} dataSource={filteredData} onChange={onChange} />
     </>
   );
 };

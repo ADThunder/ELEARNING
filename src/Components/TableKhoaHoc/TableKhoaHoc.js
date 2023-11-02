@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Popconfirm, Space, Table } from "antd";
+import React, { useEffect, useState } from "react";
+import { Popconfirm, Space, Table, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
 import { layDanhSachKhoaHocApi } from "../../redux/slice/quanLyKhoaHocSlice";
@@ -11,6 +11,7 @@ const onChange = (pagination, filters, sorter, extra) => {
 };
 
 const TableKhoaHoc = () => {
+  const [searchText, setSearchText] = useState("");
   const navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
   const dispatch = useDispatch();
@@ -19,6 +20,53 @@ const TableKhoaHoc = () => {
   }, []);
   const { listKhoaHoc } = useSelector((state) => state.quanLyKhoaHocSlice);
   // console.log(listKhoaHoc);
+  const handleSearch = (selectedKeys, confirm) => {
+    confirm();
+    setSearchText(selectedKeys[0]);
+  };
+
+  const handleReset = (clearFilters) => {
+    clearFilters();
+    setSearchText("");
+  };
+
+  const getColumnSearchProps = (dataIndex) => ({
+    filterDropdown: ({
+      setSelectedKeys,
+      selectedKeys,
+      confirm,
+      clearFilters,
+    }) => (
+      <div style={{ padding: 8 }}>
+        <Input
+          placeholder={`Search ${dataIndex}`}
+          value={selectedKeys[0]}
+          onChange={(e) =>
+            setSelectedKeys(e.target.value ? [e.target.value] : [])
+          }
+          onPressEnter={() => handleSearch(selectedKeys, confirm)}
+          style={{ marginBottom: 8, display: "block" }}
+        />
+        <button
+          type="button"
+          onClick={() => handleSearch(selectedKeys, confirm)}
+          style={{ marginRight: 8 }}
+        >
+          Search
+        </button>
+        <button type="button" onClick={() => handleReset(clearFilters)}>
+          Reset
+        </button>
+      </div>
+    ),
+    filterIcon: (filtered) => (
+      <i className={`fa-solid fa-search${filtered ? "-minus" : ""}`} />
+    ),
+    onFilter: (value, record) =>
+      record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
+    render: (text) => <span>{text}</span>,
+  });
+
   const columns = [
     {
       title: "STT",
@@ -37,6 +85,7 @@ const TableKhoaHoc = () => {
     {
       title: "Tên khoá học",
       dataIndex: "tenKhoaHoc",
+      ...getColumnSearchProps("tenKhoaHoc"),
     },
     {
       title: "Hình ảnh",
@@ -114,10 +163,19 @@ const TableKhoaHoc = () => {
       ),
     },
   ];
+  const filteredData = listKhoaHoc.filter((item) =>
+    item.tenKhoaHoc.toLowerCase().includes(searchText.toLowerCase())
+  );
   return (
     <>
       {contextHolder}
-      <Table columns={columns} dataSource={listKhoaHoc} onChange={onChange} />
+      <Input
+        placeholder="Nhập vào khoá học cần tìm"
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+        style={{ marginBottom: 16 }}
+      />
+      <Table columns={columns} dataSource={filteredData} onChange={onChange} />
     </>
   );
 };

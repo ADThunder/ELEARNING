@@ -5,12 +5,14 @@ import { useParams } from "react-router-dom";
 import { Select, message } from "antd";
 import KhoaHocDaGhiDanh from "../KhoaHocDaGhiDanh/KhoaHocDaGhiDanh";
 import { quanLyNguoiDungServ } from "../../services/quanLyNguoiDungServ";
+import KhoaHocChoXacThucNguoiDung from "../KhoaHocChoXacThucGhiDanh/KhoaHocChoXacThucNguoiDung";
 
 const GhiDanhKhoaHoc = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const [valueSelected, setValueSelected] = useState("");
   const params = useParams();
   const [data, setData] = useState([]);
+  const [daXetDuyet, setDaXetDuyet] = useState([]);
   //todo : lấy danh sách khoá học
   useEffect(() => {
     quanLyNguoiDungServ
@@ -18,6 +20,20 @@ const GhiDanhKhoaHoc = () => {
       .then((result) => {
         // console.log(result);
         setData(result.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  //todo : lấy khoá học đã ghi danh
+  useEffect(() => {
+    quanLyNguoiDungServ
+      .layDanhSachKhoaHocDaXetDuyet({
+        taiKhoan: params.id,
+      })
+      .then((result) => {
+        console.log(result);
+        setDaXetDuyet(result.data);
       })
       .catch((error) => {
         console.log(error);
@@ -45,10 +61,21 @@ const GhiDanhKhoaHoc = () => {
       .then((result) => {
         console.log(result);
         messageApi.success(result.data);
+        quanLyNguoiDungServ
+          .layDanhSachKhoaHocDaXetDuyet({
+            taiKhoan: params.id,
+          })
+          .then((result) => {
+            console.log(result);
+            setDaXetDuyet(result.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
         console.log(error);
-        messageApi.error(error.response.data);
+        messageApi.error(error.response);
       });
   };
   return (
@@ -86,7 +113,13 @@ const GhiDanhKhoaHoc = () => {
           </div>
         </div>
         <hr />
-        <KhoaHocDaGhiDanh />
+        <KhoaHocChoXacThucNguoiDung />
+        <hr />
+        <KhoaHocDaGhiDanh
+          daXetDuyet={daXetDuyet}
+          setDaXetDuyet={setDaXetDuyet}
+          params={params}
+        />
       </div>
     </>
   );
