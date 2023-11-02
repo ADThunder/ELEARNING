@@ -16,7 +16,7 @@ const GhiDanhKhoaHoc = () => {
     quanLyNguoiDungServ
       .layDanhSachKhoaHocChuaGhiDanh(params.id)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setData(result.data);
       })
       .catch((error) => {
@@ -38,8 +38,8 @@ const GhiDanhKhoaHoc = () => {
     const ghiDanh = new GhiDanh();
     ghiDanh.taiKhoan = params.id;
     ghiDanh.maKhoaHoc = valueSelected;
-    console.log(ghiDanh.taiKhoan);
-    console.log(ghiDanh.maKhoaHoc);
+    // console.log(ghiDanh.taiKhoan);
+    // console.log(ghiDanh.maKhoaHoc);
     quanLyKhoaHocServ
       .ghiDanhKhoaHoc(ghiDanh)
       .then((result) => {

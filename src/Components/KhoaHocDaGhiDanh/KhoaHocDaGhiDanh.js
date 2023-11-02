@@ -1,30 +1,51 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { quanLyNguoiDungServ } from "../../services/quanLyNguoiDungServ";
 
 const KhoaHocDaGhiDanh = () => {
+  const [khoaHocChoXet, setKhoaHocChoXet] = useState([]);
+  console.log(khoaHocChoXet);
   const params = useParams();
-  console.log(params.id);
+  //todo : lấy ra danh sách khoá học chờ xét duyệt
   useEffect(() => {
     quanLyNguoiDungServ
-      .layDanhSachKhoaHocChoXetDuyet(params.id)
+      .layDanhSachKhoaHocChoXetDuyet({
+        taiKhoan: params.id,
+      })
       .then((result) => {
         console.log(result);
+        setKhoaHocChoXet(result.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data);
       });
   }, []);
-  useEffect(() => {
-    quanLyNguoiDungServ
-      .layDanhSachKhoaHocDaXetDuyet(params.id)
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  class GhiDanh {
+    maKhoaHoc = "";
+    taiKhoan = "";
+  }
+  //todo : render khoá học chờ xét duyệt (có thể có, có thể không)
+  const renderKhoaHocChoXetDuyet = () => {
+    return khoaHocChoXet?.map((item, index) => {
+      console.log(item);
+      return (
+        <tr key={index}>
+          <td class="px-3 text-2xl font-medium text-gray-600">{index + 1}</td>
+          <td class="px-3 py-2">
+            <p>{item?.tenKhoaHoc}</p>
+          </td>
+          <td class="px-3 py-2">
+            <button className="bg-green-500 text-white rounded px-4 py-2 cursor-pointer hover:bg-green-600 duration-500">
+              Xác thực
+            </button>
+            <button className="bg-red-500 text-white rounded px-4 py-2 cursor-pointer hover:bg-red-600 duration-500">
+              Xoá
+            </button>
+          </td>
+        </tr>
+      );
+    });
+  };
 
   return (
     <div>
@@ -42,17 +63,7 @@ const KhoaHocDaGhiDanh = () => {
               </tr>
             </thead>
             <tbody class="border-b bg-gray-50 border-gray-300">
-              <tr>
-                <td class="px-3 text-2xl font-medium text-gray-600">1</td>
-                <td class="px-3 py-2">
-                  <p>Lập trình FrontEnd</p>
-                </td>
-                <td class="px-3 py-2">
-                  <button className="bg-red-500 text-white rounded px-4 py-2 cursor-pointer hover:bg-red-600 duration-500">
-                    Xoá
-                  </button>
-                </td>
-              </tr>
+              {renderKhoaHocChoXetDuyet()}
             </tbody>
           </table>
         </div>

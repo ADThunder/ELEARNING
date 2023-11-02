@@ -58,4 +58,25 @@ export const quanLyNguoiDungServ = {
       taiKhoan
     );
   },
+  //todo : lấy danh sách người dùng chưa ghi danh vào khoá học
+  layDanhXachNguoiDungChuaGhiDanh: async (maKhoaHoc) => {
+    return await https.post(
+      "/api/QuanLyNguoiDung/LayDanhSachNguoiDungChuaGhiDanh",
+      maKhoaHoc
+    );
+  },
+  //todo : lấy danh sách học viên chờ xét duyệt
+  layDanhSachHocVienChoXetDuyet: async (maKhoaHoc) => {
+    return await https.post(
+      `/api/QuanLyNguoiDung/LayDanhSachHocVienChoXetDuyet`,
+      maKhoaHoc
+    );
+  },
+  //todo : lấy danh sách người dùng đã ghi danh vào khoá học đó
+  layDanhSachHocVienKhoaHoc: async (maKhoaHoc) => {
+    return await https.post(
+      `/api/QuanLyNguoiDung/LayDanhSachHocVienKhoaHoc`,
+      maKhoaHoc
+    );
+  },
 };

@@ -44,4 +44,15 @@ export const quanLyKhoaHocServ = {
       `/api/QuanLyKhoaHoc/XoaKhoaHoc?MaKhoaHoc=${maKhoaHoc}`
     );
   },
+  //todo : cập nhật khoá học
+  capNhatKhoaHocUpload: async (formData) => {
+    return await https.post(
+      `/api/QuanLyKhoaHoc/CapNhatKhoaHocUpload`,
+      formData
+    );
+  },
+  //todo : huỷ ghi danh khoá học
+  huyGhiDanh: async (ghiDanh) => {
+    return await https.post(`/api/QuanLyKhoaHoc/HuyGhiDanh`, ghiDanh);
+  },
 };

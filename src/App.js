@@ -18,6 +18,8 @@ import ThemNguoiDung from "./Components/ThemNguoiDung/ThemNguoiDung";
 import GhiDanhKhoaHoc from "./Components/GhiDanhKhoaHoc/GhiDanhKhoaHoc";
 import KhoaHocAdmin from "./pages/KhoaHocAdmin/KhoaHocAdmin";
 import EditKhoaHoc from "./Components/EditKhoaHoc/EditKhoaHoc";
+import GhiDanhTheoTenNguoiDung from "./Components/GhiDanhTheoTenNguoiDung/GhiDanhTheoTenNguoiDung";
+import ThemKhoaHoc from "./Components/ThemKhoaHoc/ThemKhoaHoc";
 
 function App() {
   return (
@@ -54,6 +56,10 @@ function App() {
             <Route path=":id" element={<GhiDanhKhoaHoc />} />
           </Route>
           <Route path="quan-ly-khoa-hoc" element={<KhoaHocAdmin />} />
+          <Route path="ghi-danh-khoa-hoc-theo-ten">
+            <Route path=":id" element={<GhiDanhTheoTenNguoiDung />} />
+          </Route>
+          <Route path="them-khoa-hoc" element={<ThemKhoaHoc />} />
         </Route>
         <Route path="thong-tin-ca-nhan" element={<ThongTinCaNhan />} />
       </Routes>

@@ -18,6 +18,7 @@ const items = [
   ]),
   getItem("Khoá học", "sub2", <TeamOutlined />, [
     getItem("Quản lý khoá học", "quan-ly-khoa-hoc"),
+    getItem("Thêm khoá học", "them-khoa-hoc"),
   ]),
 ];
 

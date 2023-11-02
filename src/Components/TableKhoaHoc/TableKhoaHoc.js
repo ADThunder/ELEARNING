@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Popconfirm, Space, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
@@ -14,7 +14,11 @@ const TableKhoaHoc = () => {
   const navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(layDanhSachKhoaHocApi());
+  }, []);
   const { listKhoaHoc } = useSelector((state) => state.quanLyKhoaHocSlice);
+  // console.log(listKhoaHoc);
   const columns = [
     {
       title: "STT",
@@ -63,7 +67,12 @@ const TableKhoaHoc = () => {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <button onClick={() => {}} className="text-xl text-green-500">
+          <button
+            onClick={() => {
+              navigate(`/admin/ghi-danh-khoa-hoc-theo-ten/${record.maKhoaHoc}`);
+            }}
+            className="text-xl text-green-500"
+          >
             <i className="fa-solid fa-plus"></i>
           </button>
           <button
