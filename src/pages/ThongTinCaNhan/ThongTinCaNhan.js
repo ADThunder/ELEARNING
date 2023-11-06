@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { quayLaiTab } from "../../redux/slice/tabAntdSlice";
 import { Tabs } from "antd";
 import TaiKhoan from "./TaiKhoan/TaiKhoan";
 import KhoaHoc from "./KhoaHoc/KhoaHoc";
-import { quanLyNguoiDungServ } from "../../services/quanLyNguoiDungServ";
 
 const ThongTinCaNhan = () => {
   const { tabActive } = useSelector((state) => state.tabAntdSlice);
