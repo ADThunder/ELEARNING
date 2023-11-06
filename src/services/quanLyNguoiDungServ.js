@@ -79,4 +79,8 @@ export const quanLyNguoiDungServ = {
       maKhoaHoc
     );
   },
+  //todo : lấy ra thông tin tài khoản đang được lưu dưới local
+  thongTinTaiKhoanLocal: async (taiKhoan) => {
+    return await https.post(`/api/QuanLyNguoiDung/ThongTinTaiKhoan`, taiKhoan);
+  },
 };

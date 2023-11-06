@@ -85,7 +85,7 @@ const Header = () => {
           ) : (
             <></>
           )}
-          <Link className="text-white" to={"/thong-tin-ca-nhan"}>
+          <Link to={"/thong-tin-ca-nhan"} className="text-white">
             {user.hoTen}
           </Link>
         </div>

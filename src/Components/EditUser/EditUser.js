@@ -44,7 +44,7 @@ const EditUser = () => {
           navigate("/admin/quan-ly-nguoi-dung");
         })
         .catch((error) => {
-          console.log(error.response.data);
+          console.log(error);
           messageApi.error(error.response.data);
         });
     },

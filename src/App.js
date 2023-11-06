@@ -40,6 +40,7 @@ function App() {
           <Route path="thong-tin" element={<ThongTin />} />
           <Route path="su-kien" element={<SuKien />} />
           <Route path="blog" element={<Blog />} />
+          <Route path="thong-tin-ca-nhan" element={<ThongTinCaNhan />} />
         </Route>
         <Route path="dang-nhap" element={<FormDangNhap />} />
         <Route path="*" element={<Error404 />} />
@@ -61,7 +62,6 @@ function App() {
           </Route>
           <Route path="them-khoa-hoc" element={<ThemKhoaHoc />} />
         </Route>
-        <Route path="thong-tin-ca-nhan" element={<ThongTinCaNhan />} />
       </Routes>
     </>
   );
