@@ -60,7 +60,7 @@ const ListKhoaHoc = () => {
                 />
                 <div className="p-4">
                   <h2 className="text-xl h-14 font-semibold">{tenKhoaHoc}</h2>
-                  <p className="text-gray-600 line-clamp-3">{moTa}</p>
+                  <p className="text-gray-600 h-10 line-clamp-3">{moTa}</p>
                   <div className="flex justify-between items-center mt-4">
                     <button
                       onClick={() => {
