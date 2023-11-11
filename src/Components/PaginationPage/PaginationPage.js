@@ -13,7 +13,7 @@ const PaginationPage = () => {
     quanLyKhoaHocServ
       .layDanhSachKhoaHocPhanTrang(currentPage)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         const { items, totalPages } = result.data;
         setData(items);
         setTotalPages(totalPages);
@@ -48,9 +48,9 @@ const PaginationPage = () => {
               {item.tenKhoaHoc}
             </h5>
             <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-              The place is close to Barceloneta Beach and bus stop just 2 min by
-              walk and near to "Naviglio" where you can enjoy the main night
-              life in Barcelona.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+              reiciendis ad velit amet commodi tenetur fugit autem voluptatibus
+              natus deserunt?
             </p>
           </div>
           <div className="p-6 pt-0">

@@ -90,7 +90,7 @@
   justify-content: center;
   padding: 15px;
   border-radius: 20px;
-  background: #41b294;
+  background: #6ab5f8;
   color: #fff;
 }
 
@@ -109,9 +109,9 @@
   text-transform: uppercase;
 }
 
-/* @keyframes shimmer {
+@keyframes shimmer {
   100% {
     transform: translateX(0%);
     opacity: 0;
   }
-} */
+}

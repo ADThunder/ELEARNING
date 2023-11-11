@@ -8,7 +8,7 @@ const FeedBackHocVien = () => {
       <div>
         <FbAnimation />
       </div>
-      <div className="w-[600px]">
+      <div className="w-[600px] feedback">
         <h2 className="font-bold text-2xl text-[#6AB5F8]">Cảm nhận học viên</h2>
         <p>
           <i className="fa-solid fa-quote-left text-[#B76BF8]"></i>

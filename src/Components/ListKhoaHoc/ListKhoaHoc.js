@@ -42,7 +42,7 @@ const ListKhoaHoc = () => {
         id="carouselSlice"
         slidesToShow={3}
         rows={2}
-        dots="true"
+        dots="false"
         arrows={true}
         nextArrow={<SampleNextArrow />}
         prevArrow={<SamplePrevArrow />}

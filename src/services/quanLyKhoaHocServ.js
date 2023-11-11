@@ -55,4 +55,11 @@ export const quanLyKhoaHocServ = {
   huyGhiDanh: async (ghiDanh) => {
     return await https.post(`/api/QuanLyKhoaHoc/HuyGhiDanh`, ghiDanh);
   },
+  //todo : thêm khoá học upload hình
+  themKhoaHocUploadHinh: async (formData) => {
+    return await https.post(
+      `/api/QuanLyKhoaHoc/ThemKhoaHocUploadHinh`,
+      formData
+    );
+  },
 };

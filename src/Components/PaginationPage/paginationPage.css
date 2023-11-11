@@ -16,14 +16,14 @@
   line-height: 1.25;
   color: #000000;
   background-color: #fff;
-  border: 2px solid #41b294;
+  border: 2px solid #6ab5f8;
   border-radius: 5px;
 }
 
 .page-item.active .pageLinkPages {
   z-index: 3;
   color: #fff;
-  background-color: #41b294;
+  background-color: #6ab5f8;
   border-color: rgb(17, 61, 60, 0.5);
 }
 
@@ -37,6 +37,6 @@
   z-index: 2;
   color: #fff;
   text-decoration: none;
-  background-color: #41b294;
+  background-color: #6ab5f8;
   border-color: #dee2e6;
 }

@@ -6,7 +6,7 @@ const ThongTin = () => {
     <>
       <div className="thongTin ">
         <div className="top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 absolute uppercase text-center w-[900px]">
-          <p className="font-medium text-xl text-[#40B293]">
+          <p className="font-medium text-xl text-[#6ab5f8]">
             V learning học là vui
           </p>
           <h6 className="text-[40px] font-semibold text-[#F6B935]">
@@ -20,7 +20,7 @@ const ThongTin = () => {
       <div className="p-[50px]">
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <h6 className="uppercase text-xl font-semibold text-[#40B293]">
+            <h6 className="uppercase text-xl font-semibold text-[#6ab5f8]">
               V learning ?
             </h6>
             <h5 className="text-[40px] py-[10px] text-[#012025] font-semibold">
@@ -50,7 +50,7 @@ const ThongTin = () => {
             />
           </div>
           <div>
-            <h6 className="uppercase text-xl font-semibold text-[#40B293]">
+            <h6 className="uppercase text-xl font-semibold text-[#6ab5f8]">
               CHƯƠNG TRÌNH HỌC V LEARNING
             </h6>
             <h5 className="text-[40px] py-[10px] text-[#012025] font-semibold">
@@ -67,7 +67,7 @@ const ThongTin = () => {
             </p>
           </div>
           <div>
-            <h6 className="uppercase text-xl font-semibold text-[#40B293]">
+            <h6 className="uppercase text-xl font-semibold text-[#6ab5f8]">
               TẦM NHÌN V LEARNING
             </h6>
             <h5 className="text-[40px] py-[10px] text-[#012025] font-semibold">
@@ -98,7 +98,7 @@ const ThongTin = () => {
             />
           </div>
           <div>
-            <h6 className="uppercase text-xl font-semibold text-[#40B293]">
+            <h6 className="uppercase text-xl font-semibold text-[#6ab5f8]">
               SỨ MỆNH V LEARNING
             </h6>
             <h5 className="text-[40px] py-[10px] text-[#012025] font-semibold">

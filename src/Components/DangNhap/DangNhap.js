@@ -79,7 +79,11 @@ const DangNhap = () => {
               Đăng nhập
             </button>
             <div className="regrister-link">
-              <p>
+              <p
+                onClick={() => {
+                  navigate("/dang-ky");
+                }}
+              >
                 Don't have account? <a href="">Đăng ký</a>
               </p>
             </div>

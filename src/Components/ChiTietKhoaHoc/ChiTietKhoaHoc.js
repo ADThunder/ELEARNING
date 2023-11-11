@@ -60,7 +60,7 @@ const ChiTietKhoaHoc = () => {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <i className="fa-solid fa-graduation-cap text-3xl text-green-500"></i>
+                <i className="fa-solid fa-graduation-cap text-3xl text-blue-500"></i>
                 <div>
                   <p className="text-gray-400">Lĩnh vực</p>
                   <p className="font-bold">Lập trình Backend</p>
@@ -154,14 +154,14 @@ const ChiTietKhoaHoc = () => {
               </div>
               <div className="flex items-center bg-slate-100 p-2">
                 <h3 className="font-semibold">MỤC 1 : GIỚI THIỆU</h3>
-                <button className="text-green-500 font-bold bg-white border-solid border-2 border-green-500 px-1 py-2 hover:bg-green-500 hover:text-white duration-500 ml-2">
+                <button className="text-blue-500 font-bold bg-white border-solid border-2 border-blue-500 px-1 py-2 hover:bg-blue-500 hover:text-white duration-500 ml-2">
                   XEM TRƯỚC
                 </button>
               </div>
               <h4 className="my-2 font-medium">Bài học</h4>
               <div className="flex justify-between items-center border py-3 px-1 border-b-0">
                 <div>
-                  <i className="fa-regular fa-circle-play text-green-500 text-[14px]"></i>
+                  <i className="fa-regular fa-circle-play text-blue-500 text-[14px]"></i>
                   <span className="text-gray-500 ml-1">
                     Các khái niệm về React Component
                   </span>
@@ -173,7 +173,7 @@ const ChiTietKhoaHoc = () => {
               </div>
               <div className="flex justify-between items-center border py-3 px-1 border-b-0">
                 <div>
-                  <i className="fa-regular fa-circle-play text-green-500 text-[14px]"></i>
+                  <i className="fa-regular fa-circle-play text-blue-500 text-[14px]"></i>
                   <span className="text-gray-500 ml-1">
                     Thiết lập môi trường cho Windows
                   </span>
@@ -185,7 +185,7 @@ const ChiTietKhoaHoc = () => {
               </div>
               <div className="flex justify-between items-center border py-3 px-1 border-b-0">
                 <div>
-                  <i className="fa-regular fa-circle-play text-green-500 text-[14px]"></i>
+                  <i className="fa-regular fa-circle-play text-blue-500 text-[14px]"></i>
                   <span className="text-gray-500 ml-1">
                     Tạo ứng dụng React - React-Scripts
                   </span>
@@ -197,7 +197,7 @@ const ChiTietKhoaHoc = () => {
               </div>
               <div className="flex justify-between items-center border py-3 px-1">
                 <div>
-                  <i className="fa-regular fa-circle-play text-green-500 text-[14px]"></i>
+                  <i className="fa-regular fa-circle-play text-blue-500 text-[14px]"></i>
                   <span className="text-gray-500 ml-1">
                     Ghi chú nhanh về dấu ngoặc kép cho string interpolation
                   </span>
@@ -209,14 +209,14 @@ const ChiTietKhoaHoc = () => {
               </div>
               <div className="flex items-center bg-slate-100 p-2">
                 <h3 className="font-semibold">MỤC 2 : KIẾN THỨC CĂN BẢN</h3>
-                <button className="text-green-500 font-bold bg-white border-solid border-2 border-green-500 px-1 py-2 hover:bg-green-500 hover:text-white duration-500 ml-2">
+                <button className="text-blue-500 font-bold bg-white border-solid border-2 border-blue-500 px-1 py-2 hover:bg-blue-500 hover:text-white duration-500 ml-2">
                   XEM TRƯỚC
                 </button>
               </div>
               <h4 className="my-2 font-medium">Bài học</h4>
               <div className="flex justify-between items-center border py-3 px-1 border-b-0">
                 <div>
-                  <i className="fa-regular fa-circle-play text-green-500 text-[14px]"></i>
+                  <i className="fa-regular fa-circle-play text-blue-500 text-[14px]"></i>
                   <span className="text-gray-500 ml-1">
                     Trang chủ và thành phần thư mục
                   </span>
@@ -228,7 +228,7 @@ const ChiTietKhoaHoc = () => {
               </div>
               <div className="flex justify-between items-center border py-3 px-1 border-b-0">
                 <div>
-                  <i className="fa-regular fa-circle-play text-green-500 text-[14px]"></i>
+                  <i className="fa-regular fa-circle-play text-blue-500 text-[14px]"></i>
                   <span className="text-gray-500 ml-1">
                     Hướng dẫn khóa học + Liên kết Github
                   </span>
@@ -240,7 +240,7 @@ const ChiTietKhoaHoc = () => {
               </div>
               <div className="flex justify-between items-center border py-3 px-1 border-b-0">
                 <div>
-                  <i className="fa-regular fa-circle-play text-green-500 text-[14px]"></i>
+                  <i className="fa-regular fa-circle-play text-blue-500 text-[14px]"></i>
                   <span className="text-gray-500 ml-1">
                     Trang chủ thương mại điện tử + thiết lập SASS
                   </span>
@@ -252,7 +252,7 @@ const ChiTietKhoaHoc = () => {
               </div>
               <div className="flex justify-between items-center border py-3 px-1 border-b-0">
                 <div>
-                  <i className="fa-regular fa-circle-play text-green-500 text-[14px]"></i>
+                  <i className="fa-regular fa-circle-play text-blue-500 text-[14px]"></i>
                   <span className="text-gray-500 ml-1">Tệp CSS và SCSS</span>
                 </div>
                 <div>
@@ -262,7 +262,7 @@ const ChiTietKhoaHoc = () => {
               </div>
               <div className="flex justify-between items-center border py-3 px-1">
                 <div>
-                  <i className="fa-regular fa-circle-play text-green-500 text-[14px]"></i>
+                  <i className="fa-regular fa-circle-play text-blue-500 text-[14px]"></i>
                   <span className="text-gray-500 ml-1">
                     React 17: Cập nhật các gói + Phiên bản React mới nhất
                   </span>
@@ -274,14 +274,14 @@ const ChiTietKhoaHoc = () => {
               </div>
               <div className="flex items-center bg-slate-100 p-2">
                 <h3 className="font-semibold">MỤC 3 : KIẾN THỨC CHUYÊN SÂU</h3>
-                <button className="text-green-500 font-bold bg-white border-solid border-2 border-green-500 px-1 py-2 hover:bg-green-500 hover:text-white duration-500 ml-2">
+                <button className="text-blue-500 font-bold bg-white border-solid border-2 border-blue-500 px-1 py-2 hover:bg-blue-500 hover:text-white duration-500 ml-2">
                   XEM TRƯỚC
                 </button>
               </div>
               <h4 className="my-2 font-medium">Bài học</h4>
               <div className="flex justify-between items-center border py-3 px-1 border-b-0">
                 <div>
-                  <i className="fa-regular fa-circle-play text-green-500 text-[14px]"></i>
+                  <i className="fa-regular fa-circle-play text-blue-500 text-[14px]"></i>
                   <span className="text-gray-500 ml-1">
                     connect() and mapStateToProps
                   </span>
@@ -293,7 +293,7 @@ const ChiTietKhoaHoc = () => {
               </div>
               <div className="flex justify-between items-center border py-3 px-1 border-b-0">
                 <div>
-                  <i className="fa-regular fa-circle-play text-green-500 text-[14px]"></i>
+                  <i className="fa-regular fa-circle-play text-blue-500 text-[14px]"></i>
                   <span className="text-gray-500 ml-1">
                     Trạng thái thư mục vào Redux
                   </span>
@@ -305,7 +305,7 @@ const ChiTietKhoaHoc = () => {
               </div>
               <div className="flex justify-between items-center border py-3 px-1 ">
                 <div>
-                  <i className="fa-regular fa-circle-play text-green-500 text-[14px]"></i>
+                  <i className="fa-regular fa-circle-play text-blue-500 text-[14px]"></i>
                   <span className="text-gray-500 ml-1">
                     Thành phần Tổng quan về Bộ sưu tập
                   </span>
@@ -327,7 +327,7 @@ const ChiTietKhoaHoc = () => {
                   backgroundPosition: "center",
                 }}
               ></div>
-              <div className="text-right mr-5 text-2xl">
+              <div className="text-right mr-5 text-2xl my-2">
                 <i className="fa-solid fa-bolt text-yellow-500"></i>
                 <span className="font-semibold ml-2">
                   500.000<sup>đ</sup>
@@ -342,7 +342,7 @@ const ChiTietKhoaHoc = () => {
                     dispatch(dangKyKhoaHocApi(thongTinDatKhoaHoc));
                     messageApi.success("Đăng ký khoá học thành công");
                   }}
-                  className="border-green-500 font-bold border py-2 w-full text-green-500 hover:bg-green-500 hover:text-white duration-500"
+                  className="border-blue-500 font-bold border py-2 w-full text-white bg-blue-500 hover:bg-blue-600 duration-500"
                 >
                   ĐĂNG KÝ
                 </button>
@@ -394,41 +394,45 @@ const ChiTietKhoaHoc = () => {
             </div>
           </div>
         </div>
-        <div className="my-4">
-          <h3 className="font-bold mb-3 text-xl">Khoá học tham khảo</h3>
+        <div className="my-6">
+          <h3 className="font-bold mb-12 text-xl">Khoá học tham khảo</h3>
           <div className="cardDetails  flex gap-4">
             {listKhoaHoc.slice(0, 4)?.map((item, index) => {
               // console.log(item);
               return (
-                <div className="itemCardDetail" key={index}>
-                  <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
+                <>
+                  <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
+                    <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
                       <img
-                        className="rounded-t-lg w-full"
+                        className="h-full w-full object-cover"
                         src={item.hinhAnh}
                         alt={item.tenKhoaHoc}
+                        layout="fill"
                       />
-                    </a>
-                    <div className="p-5">
-                      <a href="#">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                          {item.tenKhoaHoc}
-                        </h5>
-                      </a>
-                      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">
-                        {item.moTa}
+                    </div>
+                    <div className="p-6">
+                      <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                        {item.tenKhoaHoc}
+                      </h5>
+                      <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Eligendi impedit quibusdam odio, obcaecati rerum minima
+                        ipsam, dicta unde maiores tenetur quo porro et, totam
+                        quae ad beatae voluptate ullam voluptates.
                       </p>
+                    </div>
+                    <div className="p-6 pt-0">
                       <button
                         onClick={() => {
                           navigate(`/chi-tiet/${item.maKhoaHoc}`);
                         }}
-                        className="text-white font-bold border-green-500 border w-full rounded py-2 bg-green-500 hover:bg-white hover:text-green-500 duration-500"
+                        className="text-white font-bold border-blue-500 border w-full rounded py-2 bg-blue-500 hover:bg-blue-600  duration-500"
                       >
-                        Xem chi Tiết
+                        Xem chi tiết
                       </button>
                     </div>
                   </div>
-                </div>
+                </>
               );
             })}
           </div>

@@ -12,7 +12,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.quanLyNguoiDungSlice);
   // console.log(user);
-  // console.log(user);
   useEffect(() => {
     const userLocal = JSON.parse(localStorage.getItem("user"));
     if (userLocal) {
@@ -72,21 +71,44 @@ const Header = () => {
       handleSearch();
     }
   };
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    dispatch(setDataUser(null));
+  };
   //todo : xử lý đăng nhập
   const handleBtnLogin = () => {
     if (user) {
       // console.log(user.maLoaiNguoiDung);
       return (
-        <div>
+        <div className="flex items-center relative">
           {user.maLoaiNguoiDung === "GV" ? (
             <span>
-              <Link to={"/admin"}>trang Admin</Link>
+              <Link to={"/admin"}>
+                <i className="fas fa-cog text-[#f6ba35] text-xl mr-2"></i>
+              </Link>
             </span>
           ) : (
             <></>
           )}
-          <Link to={"/thong-tin-ca-nhan"} className="text-white">
-            {user.hoTen}
+          <Link
+            to={"/thong-tin-ca-nhan"}
+            className="text-white flex items-center infoHeader "
+          >
+            <img
+              className="w-[50px] h-[50px] rounded-[50%] object-cover z-10"
+              src="https://cdn.dribbble.com/users/2364329/screenshots/6676961/02.jpg?compress=1&resize=800x600"
+              alt="https://cdn.dribbble.com/users/2364329/screenshots/6676961/02.jpg?compress=1&resize=800x600"
+            />
+            <span
+              className="absolute logout"
+              onClick={() => {
+                handleLogout();
+              }}
+            >
+              <Link to={"/"}>
+                <i className="fas fa-power-off text-[#f6ba35] text-xl"></i>
+              </Link>
+            </span>
           </Link>
         </div>
       );

@@ -25,7 +25,7 @@ const ThongTinCaNhan = () => {
             />
             <h6 className="mb-[10px] font-semibold">Robert Nguyễn</h6>
             <p className="mb-[10px]">Lập trình viên Front-end</p>
-            <button className="p-[10px] rounded-[20px] text-white bg-[#41b294] border-none">
+            <button className="p-[10px] rounded-[20px] text-white bg-[#6ab5f9] border-none">
               Hồ sơ cá nhân
             </button>
           </div>

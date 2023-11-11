@@ -1,9 +1,7 @@
 .counting-sec {
   padding: 40px 0;
   width: 100%;
-  background: #a1ff8b;
-  background: -webkit-linear-gradient(to left, #a1ff8b, #3f93ff);
-  background: linear-gradient(to left, #a1ff8b, #3f93ff);
+  background: #f0f8ff;
 }
 .inner-width {
   max-width: 1200px;
@@ -17,11 +15,9 @@
   color: #fff;
   text-transform: uppercase;
 }
-.col i {
-  font-size: 40px;
-  color: #333;
-}
+
 .num {
-  font-size: 40px;
-  margin: 20px 0;
+  font-size: 50px;
+  color: #6ab5f8;
+  font-weight: bold;
 }

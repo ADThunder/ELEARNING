@@ -20,6 +20,7 @@ import KhoaHocAdmin from "./pages/KhoaHocAdmin/KhoaHocAdmin";
 import EditKhoaHoc from "./Components/EditKhoaHoc/EditKhoaHoc";
 import GhiDanhTheoTenNguoiDung from "./Components/GhiDanhTheoTenNguoiDung/GhiDanhTheoTenNguoiDung";
 import ThemKhoaHoc from "./Components/ThemKhoaHoc/ThemKhoaHoc";
+import FormDangKy from "./pages/FormDangKy/FormDangKy";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="thong-tin-ca-nhan" element={<ThongTinCaNhan />} />
         </Route>
         <Route path="dang-nhap" element={<FormDangNhap />} />
+        <Route path="dang-ky" element={<FormDangKy />} />
         <Route path="*" element={<Error404 />} />
         <Route path="admin" element={<AdminTemplate />}>
           <Route path="quan-ly-nguoi-dung" element={<UserAdmin />} />

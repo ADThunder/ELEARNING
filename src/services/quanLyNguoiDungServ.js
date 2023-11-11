@@ -83,4 +83,9 @@ export const quanLyNguoiDungServ = {
   thongTinTaiKhoanLocal: async (taiKhoan) => {
     return await https.post(`/api/QuanLyNguoiDung/ThongTinTaiKhoan`, taiKhoan);
   },
+  //todo : đăng ký tài khoản cho người dùng
+  dangKy: async (taiKhoan) => {
+    return await https.post(`/api/QuanLyNguoiDung/DangKy`, taiKhoan);
+  },
+  //todo : lấy danh sách toàn bộ loại người dùng của các nhóm
 };

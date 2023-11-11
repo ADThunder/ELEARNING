@@ -13,6 +13,18 @@
   width: 100%;
   border: none;
 }
+.logout {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  z-index: 1;
+  transform: translateX(30px);
+  transition: all 0.5s;
+}
+
+.infoHeader:hover .logout {
+  transform: translateX(85px);
+}
 @media (max-width: 700px) {
   .mobile-menu-open {
     position: absolute;
