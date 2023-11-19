@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 
 const BannerCarousel = () => {
   return (
-    <div className="grid grid-cols-2 ">
+    <div className="grid grid-cols-2 bannerCarousel">
       {/* carouselBanner left */}
       <div className="carouselLeft flex flex-col items-center justify-center space-y-3">
         <h1 className="text-2xl font-bold text-[#6BB5F8] ">

@@ -25,16 +25,52 @@
 .infoHeader:hover .logout {
   transform: translateX(85px);
 }
-@media (max-width: 700px) {
-  .mobile-menu-open {
+.headerFixed {
+  position: fixed;
+  box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
+  background-color: white;
+  transition: all 0.5s;
+  width: 100%;
+  animation: fadeInDown ease-in 0.5s;
+}
+// @media (max-width: 1140px) {
+//   #mobile-menu {
+//     position: absolute;
+//     right: 25px;
+//     top: 80px;
+//     background: #808080a8;
+//     padding: 10px;
+//     color: white;
+//   }
+// }
+@media (max-width: 1240px) {
+  .imgHeader {
+    width: 200px;
+  }
+}
+@media (max-width: 1124px) {
+  #mobile-menu {
     position: absolute;
-    top: 100%;
-    right: 0;
-    width: 100%;
-    background-color: #fff;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    right: 25px;
+    top: 80px;
+    background: #808080a8;
+    padding: 10px;
+    color: white;
+  }
+}
+@media (max-width: 768px) {
+  .imgHeader {
+    width: 150px;
+  }
+  .headerInput {
+    gap: 10px;
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

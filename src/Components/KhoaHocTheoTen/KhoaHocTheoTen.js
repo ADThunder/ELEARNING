@@ -1,22 +1,31 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import {
+  setLoadingEnd,
+  setLoadingStarted,
+} from "../../redux/slice/loadingSlice";
 import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
 import "./khoaHocTheoTen.css";
 
 const KhoaHocTheoTen = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [tenKhoaHoc, setTenKhoaHoc] = useState([]);
   const params = useParams();
   // console.log(params);
   useEffect(() => {
+    dispatch(setLoadingStarted());
     quanLyKhoaHocServ
       .layKhoaHocTheoMaDanhMuc(params.id)
       .then((result) => {
         // console.log(result.data);
         setTenKhoaHoc(result.data);
+        dispatch(setLoadingEnd());
       })
       .catch((error) => {
         console.log(error);
+        dispatch(setLoadingEnd());
       });
   }, [params.id]);
 

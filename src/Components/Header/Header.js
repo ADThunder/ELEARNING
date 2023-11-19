@@ -92,7 +92,7 @@ const Header = () => {
           )}
           <Link
             to={"/thong-tin-ca-nhan"}
-            className="text-white flex items-center infoHeader "
+            className="text-white flex items-center infoHeader"
           >
             <img
               className="w-[50px] h-[50px] rounded-[50%] object-cover z-10"
@@ -123,12 +123,30 @@ const Header = () => {
       );
     }
   };
+  const setHeaderFixed = () => {
+    const headerFixed = document.querySelector(".header");
+    if (headerFixed) {
+      if (window.scrollY >= 200) {
+        headerFixed.classList.add("headerFixed");
+      } else {
+        headerFixed.classList.remove("headerFixed");
+      }
+    } else {
+      return null;
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", setHeaderFixed);
+    return () => {
+      window.addEventListener("scroll", setHeaderFixed);
+    };
+  }, []);
   return (
-    <header className="p-4 bg-[#6BB5F8] text-neutral-800 dark:text-neutral-200 z-[999]">
-      <div className="container flex justify-between h-16 mx-auto">
+    <header className="p-4 bg-[#6BB5F8] text-neutral-800 dark:text-neutral-200 z-[999] header">
+      <div className="container flex justify-between h-16 mx-auto gap-2">
         <ul
           className={`items-stretch space-x-1 lg:flex font-medium gap-2 ${
-            isOpen ? "" : "hidden"
+            isOpen ? "mobile-menu" : "hidden"
           } `}
           id="mobile-menu"
         >
@@ -184,15 +202,16 @@ const Header = () => {
           rel="noopener noreferrer"
           to={"/"}
           aria-label="Back to homepage"
-          className="flex items-center mr-[150px]"
+          className="flex items-center"
         >
           <img
             src="https://cybersoft.edu.vn/wp-content/uploads/2022/10/cyberlogo-white.png"
             alt="https://cybersoft.edu.vn/wp-content/uploads/2022/10/cyberlogo-white.png"
             width={250}
+            className="imgHeader"
           />
         </Link>
-        <div className="flex items-center md:space-x-4">
+        <div className="flex items-center md:space-x-4 headerInput">
           <div className="relative">
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
               <button
@@ -224,23 +243,13 @@ const Header = () => {
               className="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-100 text-gray-800 focus:bg-gray-50"
             />
           </div>
-          {/* {user ? (
-            <p className="text-white">{user.hoTen}</p>
-          ) : (
-            <Link
-              to={"/dang-nhap"}
-              className="hidden px-6 py-2 font-semibold rounded lg:block bg-[#B86BF8] text-gray-50 hover:bg-[#B87BF9] duration-500"
-            >
-              Đăng nhập
-            </Link>
-          )} */}
           {handleBtnLogin()}
         </div>
         <button
           onClick={toggleMenu}
           title="Open menu"
           type="button"
-          className="p-4 lg:hidden"
+          className="p-4 xl:hidden"
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
         >

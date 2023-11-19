@@ -1,5 +1,6 @@
 import React from "react";
 import PaginationPage from "../PaginationPage/PaginationPage";
+import "./khoaHocTongHop.css";
 
 const KhoaHocTongHop = () => {
   return (
@@ -9,7 +10,7 @@ const KhoaHocTongHop = () => {
         <p className="text-[13px]">Bắt đầu hành trình nào !!!</p>
       </div>
       <div className="p-[50px]">
-        <div className="grid grid-cols-6">
+        <div className="grid grid-cols-6 khoaHocResponsive">
           <div className="bg-[#264653] flex flex-col items-center justify-center text-white uppercase h-full py-[30px] px-[20px] text-center">
             <h6>chương trình học</h6>
             <i className="fas fa-laptop text-3xl pb-[10px]"></i>

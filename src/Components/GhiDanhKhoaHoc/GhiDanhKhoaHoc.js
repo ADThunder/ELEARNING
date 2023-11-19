@@ -84,7 +84,7 @@ const GhiDanhKhoaHoc = () => {
       <div className="bg-white p-10 space-y-3">
         <h1 className="text-red-500 text-2xl">Ghi danh khoá học</h1>
         <div>
-          <div className="grid grid-cols-3 items-center uppercase">
+          <div className="grid grid-cols-3 items-center uppercase giDanhRes">
             <h3 className="text-center font-semibold text-xl">Chọn khoá học</h3>
             <div className="w-full ">
               <Select
@@ -100,12 +100,12 @@ const GhiDanhKhoaHoc = () => {
                 placeholder="Chọn khoá học"
               />
             </div>
-            <div className="text-center">
+            <div className="text-center w-full">
               <button
                 onClick={() => {
                   handleGhiDanhKhoaHoc();
                 }}
-                className="bg-green-500 rounded text-white font-bold w-1/2 py-2 hover:bg-green-600 duration-500"
+                className="bg-green-500 rounded text-white font-bold w-1/2 py-2 hover:bg-green-600 duration-500 text-center"
               >
                 GHI DANH KHOÁ HỌC
               </button>

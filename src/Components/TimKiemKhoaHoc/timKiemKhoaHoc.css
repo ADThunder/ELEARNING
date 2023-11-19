@@ -57,6 +57,7 @@
 
 .navFilter > h6 i {
   margin-right: 5px;
+  color: #6ab5f8;
 }
 
 .filterItem h6 {
@@ -72,68 +73,6 @@
 }
 .filterItem ul li {
   padding: 5px 0;
-}
-
-@keyframes zoomI {
-  0% {
-    transform: scale(1.5);
-  }
-  90% {
-    transform: scale(0.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-.navFilterRes {
-  display: none;
-  position: relative;
-}
-
-.navFilterRes .textFilter {
-  position: relative;
-  z-index: 9999;
-  font-size: 25px;
-  padding-bottom: 16px;
-}
-
-.navFilterRes .textFilter i {
-  color: #6ab5f8;
-  margin-right: 5px;
-}
-
-.navFilterRes .filterContainer {
-  /* display: none; */
-  position: absolute;
-  top: 40px;
-  z-index: 9999;
-  transform: translateX(calc(-100% - 50px));
-  transition: all 0.5s;
-}
-
-.filterCheckInput {
-  display: none;
-}
-
-/* Overlay filter */
-.overlayFilter {
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  background: rgba(117, 117, 117, 0.95);
-  z-index: 1000;
-  width: 100%;
-  height: 100%;
-}
-
-.filterCheckInput:checked ~ .overlayFilter {
-  display: block;
-  /* color: red; */
-}
-
-.filterCheckInput:checked ~ .filterContainer {
-  transform: translateX(0);
 }
 
 .btnKhoaHoc {
@@ -161,4 +100,15 @@
 
 .btnKhoaHoc:active {
   transform: translateY(-1px);
+}
+
+@media (max-width: 992px) {
+  .timKiemResponsive {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 768px) {
+  .searchPageResponsive {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
 }

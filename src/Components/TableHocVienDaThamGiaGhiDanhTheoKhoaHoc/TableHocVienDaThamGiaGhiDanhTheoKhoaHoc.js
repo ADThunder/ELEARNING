@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { quanLyNguoiDungServ } from "../../services/quanLyNguoiDungServ";
 import { message } from "antd";
 import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
+import "./tableHocVienDaThamGiaGhiDanhTheoKhoaHoc.css";
 
 const TableHocVienDaThamGiaGhiDanhTheoKhoaHoc = ({ params, data, setData }) => {
   const [messageApi, contextHolder] = message.useMessage();
@@ -68,9 +69,9 @@ const TableHocVienDaThamGiaGhiDanhTheoKhoaHoc = ({ params, data, setData }) => {
   return (
     <>
       {contextHolder}
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly tableHocVienRes">
         <h1 className="text-xl font-bold">Học viên đã tham gia khoá học</h1>
-        <div className="w-1/3">
+        <div className="w-1/3 inputTableHocVienRes">
           <Input
             placeholder="Nhập tên học viên"
             onChange={(e) => setSearchValue(e.target.value)}

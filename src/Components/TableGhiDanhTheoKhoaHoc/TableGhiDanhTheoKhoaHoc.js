@@ -3,6 +3,7 @@ import { Input } from "antd";
 import { quanLyNguoiDungServ } from "../../services/quanLyNguoiDungServ";
 import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
 import { message } from "antd";
+import "./tableGhiDanhTheoKhoaHoc.css";
 const TableGhiDanhTheoKhoaHoc = ({ params }) => {
   const [messageApi, contextHolder] = message.useMessage();
   //todo : data danh sách người dùng chờ xét duyệt
@@ -113,9 +114,9 @@ const TableGhiDanhTheoKhoaHoc = ({ params }) => {
   return (
     <>
       {contextHolder}
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly tableGhiDanhKhoaHocRes">
         <h1 className="text-xl font-bold">Học viên chờ xác thực</h1>
-        <div className="w-1/3">
+        <div className="w-1/3 inputGhiDanhRes">
           <Input
             placeholder="Nhập tên học viên"
             onChange={(e) => setSearchValue(e.target.value)}

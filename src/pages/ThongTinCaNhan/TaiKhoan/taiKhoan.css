@@ -115,3 +115,37 @@
     opacity: 0;
   }
 }
+@media (max-width: 1320px) {
+  .animationSkill {
+    grid-column: span 7 / span 7 !important;
+  }
+  .animationInfo {
+    grid-column: span 5 / span 5 !important;
+  }
+}
+@media (max-width: 1024px) {
+  .animationSkill {
+    grid-column: span 6 / span 6 !important;
+  }
+  .animationInfo {
+    grid-column: span 6 / span 6 !important;
+  }
+  .infoText {
+    font-size: 13px !important;
+  }
+  .imgKhoaHocRes {
+    grid-column: span 12 / span 12 !important;
+  }
+  .infoKhoaHocRes {
+    grid-column: span 12 / span 12 !important;
+  }
+  .btnKhoaHocRes {
+    grid-column: span 12 / span 12 !important;
+    justify-content: start !important;
+  }
+}
+@media (max-width: 992px) {
+  .taiKhoanSkill {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+}

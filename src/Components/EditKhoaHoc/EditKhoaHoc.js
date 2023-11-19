@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { layThongTinKhoaHocApi } from "../../redux/slice/quanLyKhoaHocSlice";
 import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
 import { message } from "antd";
+import "./editKhoaHoc.css";
 
 const EditKhoaHoc = () => {
   const [messageApi, contextHolder] = message.useMessage();
@@ -64,7 +65,7 @@ const EditKhoaHoc = () => {
       <div className="bg-white p-10 space-y-3">
         <h1 className="text-red-500 text-2xl">Chỉnh sửa khoá học</h1>
         <form
-          className="grid grid-cols-2 gap-2 text-black"
+          className="grid grid-cols-2 gap-2 text-black editKhoaHocRes"
           onSubmit={handleSubmit}
         >
           <div className="relative z-0 w-full mb-6 group">

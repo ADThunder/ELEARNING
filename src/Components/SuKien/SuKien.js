@@ -41,16 +41,16 @@ const SuKien = () => {
             </div>
           </div>
           <h4 className="text-white text-[40px] py-[10px] font-semibold">
-            Sự kiện công nghệ lớn nhất 2021
+            Sự kiện công nghệ lớn nhất 2023
           </h4>
-          <h6 className="text-white py-[10px] text-lg font-semibold">
+          <h6 className="text-white py-[10px] text-lg font-semibold w-1/2">
             20 - 25 tháng 10, 2023, Việt Nam
           </h6>
         </div>
       </div>
       <div className="bg-[#F0EDE5]">
         <div className="container mx-auto py-20">
-          <div className="grid grid-cols-2 ">
+          <div className="grid grid-cols-2 suKienResponsive">
             <div className="relative ">
               <div class="animationEvent">
                 <div class="moon">
@@ -73,7 +73,7 @@ const SuKien = () => {
                 </div>
               </div>
             </div>
-            <div className="">
+            <div className="p-5">
               <h5 className="uppercase pb-[10px] text-[#9f1f56] text-3xl font-semibold">
                 Sự kiện công nghệ dành cho startup
               </h5>
@@ -88,7 +88,7 @@ const SuKien = () => {
                 và Augmented reality/Virtual Reality (Thực tế tăng cường/Thực tế
                 ảo)
               </p>
-              <div className="flex space-x-6">
+              <div className="flex space-x-6 btnAll items-center">
                 <button class="btnSpace" type="button">
                   <strong>Tham gia</strong>
                   <div id="container-stars">
@@ -123,7 +123,7 @@ const SuKien = () => {
         <h6 className="text-center p-5 text-3xl font-semibold text-[#f6ba35]">
           Các nhà đồng sáng tạo
         </h6>
-        <div className="grid grid-cols-4 justify-center items-center z-10 relative gap-4">
+        <div className="grid grid-cols-4 justify-center items-center z-10 relative gap-4 artistGrid">
           <div className="flex flex-col min-w-[280px] uppercase text-white mb-[15px]">
             <img
               src="https://demo2.cybersoft.edu.vn/static/media/instrutor5.2e4bd1e6.jpg"
@@ -198,7 +198,7 @@ const SuKien = () => {
         <h3 className="text-center text-3xl text-[#f6ba35] font-semibold uppercase">
           Nhà tài trợ chương trình
         </h3>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-4 brandResponsive">
           <div className="itemBrand text-center uppercase mt-4">
             <img
               className="h-56 object-cover w-full min-h-[224px] rounded"

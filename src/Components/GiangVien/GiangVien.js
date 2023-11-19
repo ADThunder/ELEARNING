@@ -9,13 +9,42 @@ const GiangVien = () => {
         Danh sách giảng viên
       </h2>
       <Carousel
-        slidesToShow={6}
+        slidesToShow={5}
         slidesToScroll={1}
         // autoplay={true}
         // speed={2000}
         // autoplaySpeed={2000}
         // cssEase={"linear"}
         dots={true}
+        responsive={[
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 576,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+            },
+          },
+        ]}
       >
         <div className="flex flex-col">
           <div className="instrutorContent">
@@ -49,7 +78,10 @@ const GiangVien = () => {
             />
             <h6 className="pb-[5px]">Bladin Slaham</h6>
             <div className="py-1">
-              <p>Chuyên gia hệ thống máy tính</p>
+              <p>
+                Chuyên gia hệ thống
+                <p>máy tính</p>
+              </p>
             </div>
             <p>
               <i className="fas fa-star text-yellow-500"></i>

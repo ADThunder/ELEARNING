@@ -56,3 +56,46 @@
   box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190),
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
+@media (max-width: 1320px) {
+  .detailLeft,
+  .detailRight {
+    padding: 50px;
+  }
+  .cardDetails {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 60px !important;
+    padding: 10px !important;
+  }
+  .responsiveCard {
+    width: 100% !important;
+  }
+}
+@media (max-width: 1280px) {
+  .responsiveGiangVienLeft {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .responsiveGiangVienLeft:nth-child(2) i {
+    height: 50px;
+  }
+  .responsiveGiangVienLeft:nth-child(3) p {
+    margin-left: 0 !important;
+  }
+}
+@media (max-width: 1024px) {
+  .responsiveChiTiet {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+  }
+}
+@media (max-width: 768px) {
+  .giangVienLeft {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+  .cardDetails {
+    display: grid !important;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+}

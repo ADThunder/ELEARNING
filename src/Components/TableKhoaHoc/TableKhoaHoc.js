@@ -175,7 +175,12 @@ const TableKhoaHoc = () => {
         onChange={(e) => setSearchText(e.target.value)}
         style={{ marginBottom: 16 }}
       />
-      <Table columns={columns} dataSource={filteredData} onChange={onChange} />
+      <Table
+        columns={columns}
+        dataSource={filteredData}
+        onChange={onChange}
+        scroll={{ x: 1024 }}
+      />
     </>
   );
 };

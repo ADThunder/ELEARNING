@@ -21,3 +21,16 @@
   color: #6ab5f8;
   font-weight: bold;
 }
+
+@media (max-width: 992px) {
+  .inner-width {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .inner-width {
+    display: flex;
+    flex-direction: column;
+  }
+}

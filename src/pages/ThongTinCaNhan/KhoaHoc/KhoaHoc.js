@@ -37,14 +37,14 @@ const KhoaHoc = () => {
       const { hinhAnh, tenKhoaHoc } = item;
       return (
         <>
-          <div className="col-span-3">
+          <div className="col-span-3 imgKhoaHocRes">
             <img
-              className="object-fill w-full h-[200px] min-h-[200px]"
+              className="object-cover w-full h-[200px] min-h-[200px]"
               src={hinhAnh}
               alt={hinhAnh}
             />
           </div>
-          <div className="col-span-7 ">
+          <div className="col-span-7 infoKhoaHocRes">
             <h6 className="text-xl font-medium">{tenKhoaHoc}</h6>
             <p className="text-[#8c8c8c] mb-[5px]">
               ES6 là một chuẩn Javascript mới được đưa ra vào năm 2015 với nhiều
@@ -82,7 +82,7 @@ const KhoaHoc = () => {
               </span>
             </div>
           </div>
-          <div className="col-span-2 flex  items-end justify-center">
+          <div className="col-span-2 flex  items-end justify-center btnKhoaHocRes">
             <button
               onClick={() => {
                 const huyGhiDanh = new HuyGhiDanh();

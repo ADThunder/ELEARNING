@@ -10,8 +10,10 @@
   position: relative;
   z-index: 20;
   padding: 200px 50px;
-  color: text-white;
+  color: white;
   text-transform: uppercase;
+  max-width: 1360px;
+  margin: 0 auto;
 }
 .events {
   padding-right: 50px;
@@ -22,7 +24,7 @@
   z-index: 1;
   top: 0;
   bottom: 0;
-  width: 100%;
+  width: 90%;
   background-image: url("https://demo2.cybersoft.edu.vn/static/media/high-techbrain.2f38d2ab.png");
   background-repeat: no-repeat;
   background-position: 100%;
@@ -422,4 +424,53 @@ strong {
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("https://demo2.cybersoft.edu.vn/static/media/lightTech.32807735.jpg");
+}
+
+@media (max-width: 1200px) {
+  .artistGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  .brandResponsive {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .btnAll .btnRocket {
+    height: 48px;
+  }
+  .btnAll .btnRocket span {
+    font-size: 12px;
+  }
+}
+@media (max-width: 992px) {
+  .artistGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 820px) {
+  .brand {
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .suKienResponsive {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 265px !important;
+  }
+  .animationEvent {
+    top: 100px !important;
+  }
+}
+@media (max-width: 670px) {
+  .artistGrid {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+  .brandResponsive {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+  .events {
+    padding-right: 30px;
+  }
 }

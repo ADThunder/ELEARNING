@@ -1,11 +1,11 @@
 import React from "react";
-
+import "./blog.css";
 const Blog = () => {
   return (
     <div className="bg-[#e8e8e8]">
       <div className="container mx-auto ">
         <div className="text-gray-900 py-4">
-          <h1 className="text-5xl font-extrabold tracking-tight text-center">
+          <h1 className="text-5xl font-extrabold tracking-tight text-center blogResponsive">
             Best Free Tailwind CSS Blog Templates
           </h1>
           <p className="text-center text-sm py-4 font-bold">By Thunder</p>

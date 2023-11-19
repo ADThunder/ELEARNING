@@ -53,3 +53,12 @@
 .buttonBanner:active {
   transform: scale(0.9);
 }
+
+@media (max-width: 992px) {
+  .bannerCarousel {
+    grid-template-columns: 1fr !important;
+  }
+  .carouselLeft {
+    padding: 100px;
+  }
+}

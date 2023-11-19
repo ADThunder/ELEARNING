@@ -8,6 +8,8 @@ import {
 } from "../../redux/slice/quanLyNguoiDungSlice";
 import { quanLyNguoiDungServ } from "../../services/quanLyNguoiDungServ";
 import { message } from "antd";
+import "./editUser.css";
+import { setLoadingStarted } from "../../redux/slice/loadingSlice";
 
 const EditUser = () => {
   const navigate = useNavigate();
@@ -57,7 +59,7 @@ const EditUser = () => {
       <div className="bg-white p-10 space-y-3">
         <h1 className="text-red-500 text-2xl">Chỉnh sửa người dùng</h1>
         <form
-          className="grid grid-cols-2 gap-2 text-black"
+          className="grid grid-cols-2 gap-2 text-black editRes"
           onSubmit={handleSubmit}
         >
           <div className="relative z-0 w-full mb-6 group">

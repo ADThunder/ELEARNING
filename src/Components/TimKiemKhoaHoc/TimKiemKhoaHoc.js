@@ -2,20 +2,29 @@ import React, { useEffect, useState } from "react";
 import "./timKiemKhoaHoc.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
+import { useDispatch } from "react-redux";
+import {
+  setLoadingEnd,
+  setLoadingStarted,
+} from "../../redux/slice/loadingSlice";
 
 const TimKiemKhoaHoc = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const params = useParams();
   useEffect(() => {
+    dispatch(setLoadingStarted());
     quanLyKhoaHocServ
       .layKhoaHocTheoMaDanhMuc(params.id)
       .then((result) => {
         console.log(result);
         setData(result.data);
+        dispatch(setLoadingEnd());
       })
       .catch((error) => {
         console.log(error);
+        dispatch(setLoadingEnd());
       });
   }, [params.id]);
   const renderData = () => {
@@ -23,10 +32,17 @@ const TimKiemKhoaHoc = () => {
       // console.log(item);
       return (
         <>
-          <div className="flex gap-3 bg-gray-100" key={index}>
-            <img src="https://picsum.photos/300/200" alt="" />
-            <div>
-              <h3 className="my-1">{item.tenKhoaHoc}</h3>
+          <div
+            className="grid grid-cols-12 gap-3 bg-gray-100 timKiemResponsive"
+            key={index}
+          >
+            <img
+              src={item.hinhAnh}
+              alt={item.hinhAnh}
+              className="object-cover col-span-4 h-full w-full"
+            />
+            <div className="col-span-8 p-5 ">
+              <h3 className="my-1 font-bold">{item.tenKhoaHoc}</h3>
               <p className="mb-1 text-gray-400">
                 ES6 là một chuẩn Javascript mới được đưa ra vào năm 2015 với
                 nhiều quy tắc và cách sử dụng khác nhau...
@@ -77,187 +93,175 @@ const TimKiemKhoaHoc = () => {
     });
   };
   return (
-    <div>
-      <div className="p-[50px] uppercase bg-[#ffd60a] text-white">
-        <h3 className="font-bold text-2xl">Tìm Kiếm</h3>
-        <p className="text-[13px]">kết quả tìm kiếm khoá học !!!</p>
-      </div>
-      <div className="searchPage">
-        <div className="grid grid-cols-12">
-          <div className="col-span-2">
-            <div className="navFilter">
-              <h6>
-                <i classNameName="fas fa-book-open"></i>Lọc
-              </h6>
-              <div className="filterContainer">
-                <div className="filterItem">
-                  <h6>Khóa học</h6>
-                  <ul>
-                    <li>
-                      <label className="boxSearch">
-                        Tất cả
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                    <li>
-                      <label className="boxSearch">
-                        Front End
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                    <li>
-                      <label className="boxSearch">
-                        Back End
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                    <li>
-                      <label className="boxSearch">
-                        HTML / CSS
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-                <div className="filterItem">
-                  <h6>Cấp độ</h6>
-                  <ul>
-                    <li>
-                      <label className="boxSearch">
-                        Tất cả
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                    <li>
-                      <label className="boxSearch">
-                        Mới bắt đầu
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                    <li>
-                      <label className="boxSearch">
-                        Trung cấp
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                    <li>
-                      <label className="boxSearch">
-                        Cao cấp
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-                <div className="filterItem">
-                  <h6>Đánh giá</h6>
-                  <ul>
-                    <li>
-                      <label className="boxSearch">
-                        <i className="fas fa-star"></i>
+    <>
+      <div>
+        <div className="p-[50px] uppercase bg-[#ffd60a] text-white">
+          <h3 className="font-bold text-2xl">Tìm Kiếm</h3>
+          <p className="text-[13px]">kết quả tìm kiếm khoá học !!!</p>
+        </div>
+        <div className="searchPage">
+          <div className="grid grid-cols-12 searchPageResponsive">
+            <div className="col-span-2">
+              <div className="">
+                <h6 className="font-bold">
+                  <i className="fas fa-book-open text-yellow-500 mr-3"></i>Lọc
+                </h6>
+                <div className="filterContainer">
+                  <div className="filterItem">
+                    <h6>Khóa học</h6>
+                    <ul>
+                      <li>
+                        <label className="boxSearch">
+                          Tất cả
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="boxSearch">
+                          Front End
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="boxSearch">
+                          Back End
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="boxSearch">
+                          HTML / CSS
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="filterItem">
+                    <h6>Cấp độ</h6>
+                    <ul>
+                      <li>
+                        <label className="boxSearch">
+                          Tất cả
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="boxSearch">
+                          Mới bắt đầu
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="boxSearch">
+                          Trung cấp
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="boxSearch">
+                          Cao cấp
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="filterItem">
+                    <h6>Đánh giá</h6>
+                    <ul>
+                      <li>
+                        <label className="boxSearch">
+                          <i className="fas fa-star"></i>
 
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                    <li>
-                      <label className="boxSearch">
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                    <li>
-                      <label className="boxSearch">
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                    <li>
-                      <label className="boxSearch">
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                    <li>
-                      <label className="boxSearch">
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="boxSearch">
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="boxSearch">
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="boxSearch">
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="boxSearch">
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
 
-                        <input type="checkbox" />
-                        <span className="checkMark">
-                          <i className="fas fa-check"></i>
-                        </span>
-                      </label>
-                    </li>
-                  </ul>
+                          <input type="checkbox" />
+                          <span className="checkMark">
+                            <i className="fas fa-check"></i>
+                          </span>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="navFilterRes">
-              <input
-                className="filterCheckInput"
-                id="filterCheck"
-                type="checkbox"
-              />
-
-              <div className="overlayFilter"></div>
-              <label htmlFor="filterCheck">
-                <h6 className="textFilter">
-                  <i classNameName="fas fa-book-open"></i>Lọc
-                </h6>
-              </label>
+            <div className="col-span-10 space-y-4">
+              <p className="my-3 font-bold text-2xl">Hiển thị 3 kết quả</p>
+              {renderData()}
             </div>
-          </div>
-          <div className="col-span-10 space-y-4">
-            <p className="my-3 font-bold text-2xl">Hiển thị 3 kết quả</p>
-            {renderData()}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -46,8 +46,28 @@ const ListKhoaHoc = () => {
         arrows={true}
         nextArrow={<SampleNextArrow />}
         prevArrow={<SamplePrevArrow />}
+        responsive={[
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true,
+            },
+          },
+        ]}
       >
-        {listKhoaHoc?.map((item, index) => {
+        {listKhoaHoc.slice(0, 40)?.map((item, index) => {
           // console.log(item);
           const { hinhAnh, biDanh, tenKhoaHoc, moTa, maKhoaHoc } = item;
           return (

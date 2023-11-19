@@ -9,6 +9,10 @@ import {
   layThongTinKhoaHocApi,
 } from "../../redux/slice/quanLyKhoaHocSlice";
 import { Rate } from "antd";
+import {
+  setLoadingEnd,
+  setLoadingStarted,
+} from "../../redux/slice/loadingSlice";
 
 const ChiTietKhoaHoc = () => {
   const [messageApi, contextHolder] = message.useMessage();
@@ -21,7 +25,17 @@ const ChiTietKhoaHoc = () => {
   const dispatch = useDispatch();
   const params = useParams();
   useEffect(() => {
-    dispatch(layThongTinKhoaHocApi(params.id));
+    const fetchData = async () => {
+      dispatch(setLoadingStarted());
+      try {
+        await dispatch(layThongTinKhoaHocApi(params.id));
+      } catch (error) {
+        console.log(error);
+      } finally {
+        dispatch(setLoadingEnd());
+      }
+    };
+    fetchData();
   }, [params.id]);
   useEffect(() => {
     dispatch(layDanhSachKhoaHocApi());
@@ -42,13 +56,13 @@ const ChiTietKhoaHoc = () => {
         />
       </div>
       <div className="container mx-auto">
-        <div className="grid grid-cols-12 gap-4">
+        <div className="grid grid-cols-12 gap-4 responsiveChiTiet">
           <div className="detailLeft col-span-7">
             <h1 className="pt-2 font-bold text-2xl uppercase">
               {detailKhoaHoc.tenKhoaHoc}
             </h1>
-            <div className="giangVienLeft flex items-center justify-between my-3">
-              <div className="flex items-center gap-2">
+            <div className="giangVienLeft grid grid-cols-3 my-3 items-center">
+              <div className="flex items-center gap-2 responsiveGiangVienLeft">
                 <img
                   style={{ height: "50px", width: "50px", borderRadius: "50%" }}
                   src="https://picsum.photos/300/300"
@@ -59,14 +73,14 @@ const ChiTietKhoaHoc = () => {
                   <p className="font-bold">Robert Ngô Ngọc</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 responsiveGiangVienLeft">
                 <i className="fa-solid fa-graduation-cap text-3xl text-blue-500"></i>
                 <div>
                   <p className="text-gray-400">Lĩnh vực</p>
                   <p className="font-bold">Lập trình Backend</p>
                 </div>
               </div>
-              <div>
+              <div className="responsiveGiangVienLeft">
                 <Rate allowHalf defaultValue={2.5} />{" "}
                 <span className="font-bold ml-2">3.5</span>
                 <p className="ml-[76px] text-gray-400">100 đánh giá</p>
@@ -166,7 +180,7 @@ const ChiTietKhoaHoc = () => {
                     Các khái niệm về React Component
                   </span>
                 </div>
-                <div>
+                <div className="flex items-center">
                   <i className="fa-regular fa-clock text-green-500 text-[14px]"></i>
                   <span className="ml-2 text-gray-500">14:35</span>
                 </div>
@@ -178,7 +192,7 @@ const ChiTietKhoaHoc = () => {
                     Thiết lập môi trường cho Windows
                   </span>
                 </div>
-                <div>
+                <div className="flex items-center">
                   <i className="fa-regular fa-clock text-green-500 text-[14px]"></i>
                   <span className="ml-2 text-gray-500">14:35</span>
                 </div>
@@ -190,7 +204,7 @@ const ChiTietKhoaHoc = () => {
                     Tạo ứng dụng React - React-Scripts
                   </span>
                 </div>
-                <div>
+                <div className="flex items-center">
                   <i className="fa-regular fa-clock text-green-500 text-[14px]"></i>
                   <span className="ml-2 text-gray-500">14:35</span>
                 </div>
@@ -202,7 +216,7 @@ const ChiTietKhoaHoc = () => {
                     Ghi chú nhanh về dấu ngoặc kép cho string interpolation
                   </span>
                 </div>
-                <div>
+                <div className="flex items-center">
                   <i className="fa-regular fa-clock text-green-500 text-[14px]"></i>
                   <span className="ml-2 text-gray-500">14:35</span>
                 </div>
@@ -221,7 +235,7 @@ const ChiTietKhoaHoc = () => {
                     Trang chủ và thành phần thư mục
                   </span>
                 </div>
-                <div>
+                <div className="flex items-center">
                   <i className="fa-regular fa-clock text-green-500 text-[14px]"></i>
                   <span className="ml-2 text-gray-500">14:35</span>
                 </div>
@@ -245,7 +259,7 @@ const ChiTietKhoaHoc = () => {
                     Trang chủ thương mại điện tử + thiết lập SASS
                   </span>
                 </div>
-                <div>
+                <div className="flex items-center">
                   <i className="fa-regular fa-clock text-green-500 text-[14px]"></i>
                   <span className="ml-2 text-gray-500">14:35</span>
                 </div>
@@ -267,7 +281,7 @@ const ChiTietKhoaHoc = () => {
                     React 17: Cập nhật các gói + Phiên bản React mới nhất
                   </span>
                 </div>
-                <div>
+                <div className="flex items-center">
                   <i className="fa-regular fa-clock text-green-500 text-[14px]"></i>
                   <span className="ml-2 text-gray-500">14:35</span>
                 </div>
@@ -286,7 +300,7 @@ const ChiTietKhoaHoc = () => {
                     connect() and mapStateToProps
                   </span>
                 </div>
-                <div>
+                <div className="flex items-center">
                   <i className="fa-regular fa-clock text-green-500 text-[14px]"></i>
                   <span className="ml-2 text-gray-500">14:35</span>
                 </div>
@@ -298,7 +312,7 @@ const ChiTietKhoaHoc = () => {
                     Trạng thái thư mục vào Redux
                   </span>
                 </div>
-                <div>
+                <div className="flex items-center">
                   <i className="fa-regular fa-clock text-green-500 text-[14px]"></i>
                   <span className="ml-2 text-gray-500">14:35</span>
                 </div>
@@ -310,7 +324,7 @@ const ChiTietKhoaHoc = () => {
                     Thành phần Tổng quan về Bộ sưu tập
                   </span>
                 </div>
-                <div>
+                <div className="flex items-center">
                   <i className="fa-regular fa-clock text-green-500 text-[14px]"></i>
                   <span className="ml-2 text-gray-500">14:35</span>
                 </div>
@@ -395,13 +409,15 @@ const ChiTietKhoaHoc = () => {
           </div>
         </div>
         <div className="my-6">
-          <h3 className="font-bold mb-12 text-xl">Khoá học tham khảo</h3>
+          <h3 className="font-bold mb-12 text-xl text-center">
+            Khoá học tham khảo
+          </h3>
           <div className="cardDetails  flex gap-4">
             {listKhoaHoc.slice(0, 4)?.map((item, index) => {
               // console.log(item);
               return (
                 <>
-                  <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
+                  <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border responsiveCard">
                     <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
                       <img
                         className="h-full w-full object-cover"

@@ -224,8 +224,8 @@ const TaiKhoan = () => {
       <h4 className="uppercase text-[#252525] text-2xl my-5 font-bold">
         Kỹ năng của tôi
       </h4>
-      <div className="grid grid-cols-12 gap-5">
-        <div className="col-span-8">
+      <div className="grid grid-cols-12 gap-5 taiKhoanSkill">
+        <div className="col-span-8 animationSkill">
           <div className="flex py-[10px] items-center">
             <button className="w-[60px] h-[45px] text-white rounded-lg border-none mr-[5px] bg-[#f9ca9a]">
               HTML
@@ -287,7 +287,7 @@ const TaiKhoan = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-4">
+        <div className="col-span-4 animationInfo">
           <div className="grid grid-cols-2 gap-4">
             <div className="itemStudy">
               <i className="fas fa-user-clock mr-2"></i>

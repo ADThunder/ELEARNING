@@ -30,3 +30,17 @@
   background-repeat: no-repeat;
   background-position: 50%;
 }
+@media (max-width: 950px) {
+  .textReponsive {
+    font-size: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .thongTinResponsive {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+  .reverseThongTin {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+  }
+}

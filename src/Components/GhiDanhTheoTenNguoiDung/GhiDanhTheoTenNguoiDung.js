@@ -6,7 +6,7 @@ import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
 import { message } from "antd";
 import TableGhiDanhTheoKhoaHoc from "../TableGhiDanhTheoKhoaHoc/TableGhiDanhTheoKhoaHoc";
 import TableHocVienDaThamGiaGhiDanhTheoKhoaHoc from "../TableHocVienDaThamGiaGhiDanhTheoKhoaHoc/TableHocVienDaThamGiaGhiDanhTheoKhoaHoc";
-
+import "./ghiDanhTheoTenNguoiDung.css";
 const GhiDanhTheoTenNguoiDung = () => {
   const [filteredOptions, setFilteredOptions] = useState([]);
   const [messageApi, contextHolder] = message.useMessage();
@@ -99,7 +99,7 @@ const GhiDanhTheoTenNguoiDung = () => {
       <div className="bg-white p-10 space-y-3">
         <h1 className="text-red-500 text-2xl">Ghi danh khoá học theo tên</h1>
         <div>
-          <div className="grid grid-cols-3 items-center uppercase">
+          <div className="grid grid-cols-3 items-center uppercase textGhiDanhTenRes">
             <h3 className="text-center font-semibold text-xl">
               Chọn tên người dùng
             </h3>
@@ -114,7 +114,7 @@ const GhiDanhTheoTenNguoiDung = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className="text-center">
+            <div className="text-center w-full">
               <button
                 onClick={() => {
                   handleGhiDanhKhoaHocTheoTen();

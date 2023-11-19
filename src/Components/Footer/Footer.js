@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="p-[10px] bg-[#f0f8ff]">
       <div className="py-[10px] px-10">
-        <div className="grid grid-cols-12">
+        <div className="grid grid-cols-12 footerGrid">
           <div className="col-span-4">
             <div className="p-2">
               <a className="mr-12 textLogo ">
@@ -99,7 +99,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="extraFooter">
-        <div>
+        <div className="extraFooterText">
           <p>Copyright © 2023. All rights reserved.</p>
         </div>
         <div className="p-0">

@@ -170,7 +170,12 @@ const TableUser = () => {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <Table columns={columns} dataSource={filteredData} onChange={onChange} />
+      <Table
+        columns={columns}
+        dataSource={filteredData}
+        onChange={onChange}
+        scroll={{ x: 1024 }}
+      />
     </>
   );
 };

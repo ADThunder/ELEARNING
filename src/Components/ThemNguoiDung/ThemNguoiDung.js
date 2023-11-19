@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { layDanhSachNguoiDungApi } from "../../redux/slice/quanLyNguoiDungSlice";
 import { Select, message } from "antd";
 import { useNavigate } from "react-router-dom";
+import "./themNguoiDung.css";
 
 const ThemNguoiDung = () => {
   const navigate = useNavigate();
@@ -80,7 +81,7 @@ const ThemNguoiDung = () => {
       <div className="bg-white p-10 space-y-10">
         <h2 className="font-medium text-3xl text-red-500">Thêm người dùng</h2>
         <form
-          className="grid grid-cols-2 gap-2 text-black"
+          className="grid grid-cols-2 gap-2 text-black themNguoiDungRes"
           onSubmit={handleSubmit}
         >
           <div className="relative z-0 w-full mb-6 group">

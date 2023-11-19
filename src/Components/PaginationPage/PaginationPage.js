@@ -3,13 +3,20 @@ import ReactPaginate from "react-paginate";
 import "./paginationPage.css";
 import { quanLyKhoaHocServ } from "../../services/quanLyKhoaHocServ";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+  setLoadingEnd,
+  setLoadingStarted,
+} from "../../redux/slice/loadingSlice";
 
 const PaginationPage = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   useEffect(() => {
+    dispatch(setLoadingStarted());
     quanLyKhoaHocServ
       .layDanhSachKhoaHocPhanTrang(currentPage)
       .then((result) => {
@@ -17,9 +24,11 @@ const PaginationPage = () => {
         const { items, totalPages } = result.data;
         setData(items);
         setTotalPages(totalPages);
+        dispatch(setLoadingEnd());
       })
       .catch((error) => {
         console.log(error);
+        dispatch(setLoadingEnd);
       });
   }, [currentPage]);
 
@@ -37,7 +46,7 @@ const PaginationPage = () => {
         >
           <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
             <img
-              className="h-full w-full"
+              className="h-full w-full object-cover"
               src={item.hinhAnh}
               layout="fill"
               alt=""
@@ -78,7 +87,9 @@ const PaginationPage = () => {
           Danh sách khoá học
         </h6>
         <div className="container mx-auto ">
-          <div className="grid grid-cols-3 mt-16 gap-12">{handleRender()}</div>
+          <div className="grid grid-cols-3 mt-16 gap-12 pageResponsive">
+            {handleRender()}
+          </div>
           <ReactPaginate
             nextLabel="Sau >"
             pageRangeDisplayed={3}
