@@ -3,8 +3,8 @@ import Lottie from "react-lottie";
 import stydyAnimation from "./../../../assets/animation/studyAnimation.json";
 const BannerCarouselRight = () => {
   const defaultOptions = {
-    loop: false,
-    autoplay: false,
+    loop: true,
+    autoplay: true,
     animationData: stydyAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",

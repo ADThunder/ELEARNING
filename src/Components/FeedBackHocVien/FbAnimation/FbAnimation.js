@@ -4,8 +4,8 @@ import feedBackAnimation from "./../../../assets/animation/feedbackAnimation.jso
 
 const FbAnimation = () => {
   const defaultOptions = {
-    loop: false,
-    autoplay: false,
+    loop: true,
+    autoplay: true,
     animationData: feedBackAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
